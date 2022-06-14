@@ -1,0 +1,152 @@
+section {
+    width: 100%;
+    max-width: 100%;
+    min-height: 100vh;
+    display: flex;
+}
+
+.imageContainer {
+    width: 50%;
+    max-width: 50%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    background: url('./contact.gif') no-repeat center scroll;
+    background-size: cover;
+}
+
+.contactContainer {
+    width: 50%;
+    max-width: 50%;
+    padding: 5px;
+    padding-right: 1rem;
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+}
+
+.contactContainer>h1 {
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    font-family: monospace;
+}
+
+input[type=text],
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
+
+input[type=submit] {
+    background: var(--bgPrimary);
+    color: var(--textPrimary);
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    opacity: 0.9;
+    font-weight: 800;
+    font-size: 1.125rem;
+    font-family: monospace;
+}
+
+input[type=submit]:hover {
+    opacity: 1;
+}
+
+footer {
+    padding: 0.5rem 1rem;
+    background-color: var(--navPrimary);
+    color: var(--textPrimary);
+}
+
+footer>p {
+    font-weight: 200;
+    font-family: monospace;
+    font-size: 12px;
+    text-align: center;
+}
+
+@media only screen and (max-width: 992px) {
+    .imageContainer {
+        background-size: contain;
+    }
+
+    .contactContainer {
+        margin-top: 1.5rem;
+    }
+
+    .contactContainer>h1 {
+        margin-top: 1.5rem;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    section {
+        justify-content: center;
+        background: url('./blob-scene-haikei.png') no-repeat center scroll;
+        background-size: cover;
+    }
+
+    .imageContainer {
+        display: none;
+    }
+
+    .contactContainer {
+        color: var(--textPrimary);
+        width: 100%;
+        max-width: 100%;
+        padding: 1rem;
+        margin-top: 0rem;
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+    }
+
+    .contactContainer>form {
+        margin: 0 auto;
+        width: 80%;
+    }
+
+    .contactContainer>h1 {
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+    }
+}
+
+@media screen and (max-width: 478px) {
+    .contactContainer {
+        padding: 0 1rem;
+        padding-right: 1rem;
+        margin-top: 0rem;
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+    }
+
+    .contactContainer>form {
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .contactContainer>h1 {
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        font-size: 1.75rem;
+        font-family: monospace;
+    }
+
+    textarea {
+        height: 150px !important;
+    }
+
+    input[type=submit] {
+        margin-bottom: 2rem;
+    }
+}

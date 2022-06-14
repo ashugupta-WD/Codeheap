@@ -1,0 +1,213 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    padding-top: 59px;
+}
+
+.navbar-toggler {
+    padding: 4px;
+    height: 32px;
+    border-color: rgb(255, 255, 255, 0.0) !important;
+    margin-right: auto;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+.bar {
+    width: 30px;
+    height: 4px;
+    position: relative;
+    background-color: white;
+    border-radius: 0.5rem;
+    transition: all 0.5s ease-in-out;
+}
+
+.bar::before {
+    content: "";
+    position: absolute;
+    top: -9px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    border-radius: 0.5rem;
+    transition: all 0.5s ease-in-out;
+}
+
+.bar::after {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    border-radius: 0.5rem;
+    transition: all 0.5s ease-in-out;
+}
+
+.hamOpen.bar {
+    transform: rotate(-45deg);
+}
+
+.hamOpen.bar::after {
+    top: 0;
+    transform: rotate(-90deg);
+}
+
+.hamOpen.bar::before {
+    top: 0;
+    transform: rotate(45deg) translateY(-50px);
+    visibility: hidden;
+}
+
+.nav-item {
+    position: relative;
+}
+
+.nav-item>a {
+    position: relative;
+    z-index: 1;
+}
+
+.link-active {
+    top: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    z-index: 0;
+    border-radius: 4px;
+}
+
+.active+.link-active {
+    background: linear-gradient(to bottom left, #4301FF, #7e00f5);
+}
+
+#profileSupportedContent {
+    padding: 0;
+    position: fixed;
+    right: 0;
+    top: 59px;
+    bottom: 0;
+    width: 0;
+    height: 15rem;
+    transition: width 500ms ease-in-out;
+    border-bottom-left-radius: 1rem;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+#profileSupportedContent.showProfileContent {
+    width: 15rem;
+}
+
+#profileSupportedContent > ul {
+    width: 100%;
+    padding: 15px;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+#profileSupportedContent > ul > li {
+    background: linear-gradient(to bottom left, #4301FF, #7e00f5);
+    border-radius: 4px;
+    white-space: nowrap;
+    overflow-x: hidden;
+}
+
+#profileSupportedContent > ul > li > a {
+    color: white;
+}
+
+#profileSupportedContent > ul > .dropdown {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#profileSupportedContent > ul > .dropdown > button {
+    background: linear-gradient(to bottom left, #4301FF, #7e00f5);
+}
+
+#profileSupportedContent > ul > .dropdown > .dropdown-menu {
+    width: 90%;
+}
+
+
+
+@media only screen and (max-width: 768px) {
+
+    .navbar-collapse {
+        position: fixed;
+        top: 59px;
+        left: 0;
+        bottom: 0;
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-bottom: 15px;
+        width: 50%;
+        height: 100%;
+        overflow-y: auto;
+    }
+
+    .navbar-collapse.collapsing {
+        height: 100%;
+        left: -100%;
+        transition: height 0s ease;
+    }
+
+    .navbar-collapse.show {
+        height: 100%;
+        left: 0;
+        transition: left 500ms ease-in-out;
+    }
+
+    .navbar-toggler.collapsed~.navbar-collapse {
+        transition: left 500ms ease-in-out;
+    }
+
+    .navbar-collapse>ul {
+        width: 100%;
+        max-width: 100%;
+        text-align: center;
+        margin: 1rem auto;
+        font-weight: 500;
+        font-size: 1.25rem;
+    }
+
+    #profileSupportedContent > ul > li > a {
+        padding: 5px 10px;
+    }
+}
+
+@media only screen and (max-width: 478px) {
+    .navbar-collapse {
+        width: 100%;
+    }
+
+    .navbar-collapse>ul {
+        width: 90%;
+        max-width: 100%;
+        font-size: 1.25rem;
+        padding-bottom: 2rem;
+    }
+}
+
+@media screen and (max-width: 300px) {
+    #profileSupportedContent {
+        border-bottom-left-radius: 0;
+    }
+    
+    #profileSupportedContent.showProfileContent {
+        width: 100%;
+    }
+}

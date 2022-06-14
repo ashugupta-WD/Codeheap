@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codeheap - Login</title>
+    <link rel="stylesheet" href="./navbar.css">
+    <link rel="stylesheet" href="./login.css">
+</head>
+
+<body>
+    <nav id="navbar">
+        <div style="display: flex;">
+            <a id="logo" href="#homeSection" class="center-x"><img id="logoImage" src="./logo.png" alt="Logo"></a>
+            <span id="ham" class="center-x" onclick="hamOpen()">
+                <span id="bar"></span>
+            </span>
+        </div>
+        <ul id="nav">
+            <li class="center-y link link-active">
+                <a href="/" class="center-x">Home</a>
+                <span></span>
+            </li>
+            <li class="link center-y">
+                <a href="/" class="center-x">Projects</a>
+                <span></span>
+            </li>
+            <li class="link center-y">
+                <a href="/" class="center-x">Notes</a>
+                <span></span>
+            </li>
+            <li class="link center-y">
+                <a href="/" class="center-x">Videos</a>
+                <span></span>
+            </li>
+            <li class="link center-y">
+                <a href="/" class="center-x">About Us</a>
+                <span></span>
+            </li>
+            <li class="link center-y">
+                <a href="#" class="center-x">Contact Us</a>
+                <span></span>
+            </li>
+        </ul>
+        <div id="signUp" class="center-x">
+            <a href="/" class="center-x">Sign up</a>
+        </div>
+    </nav>
+    <div onclick="backToTop()" id="backToTopBtn" class="center-x"><img
+            src="https://cdn-icons-png.flaticon.com/512/992/992534.png" alt="backToTop"></div>
+    <aside class="menuContent">
+        <div id="menu">
+            <a href="/"><img src="https://cdn-icons-png.flaticon.com/512/25/25694.png" alt="Home">Home</a>
+            <a href="/"><img src="https://cdn-icons-png.flaticon.com/512/1336/1336989.png" alt="Projects">Projects</a>
+            <a href="/"><img src="https://cdn-icons-png.flaticon.com/512/3075/3075908.png" alt="Notes">Notes</a>
+            <a href="/"><img src="https://cdn-icons-png.flaticon.com/512/2991/2991195.png" alt="Videos">Videos</a>
+            <a href="/"><img src="https://cdn-icons-png.flaticon.com/512/1187/1187544.png" alt="Blog">About
+                Us</a>
+            <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/2343/2343522.png" alt="ContactInfo">Contact
+                Us</a>
+        </div>
+    </aside>
+    <div style="display: flex; height: auto;">
+        <div class="signinImage center-x">
+            <img src="./login.png" alt="Login page image">
+            <div>
+                <h1 style="margin: 4px 0;">Welcome to CodeHeap</h1>
+                <h3 style="color: rgb(0, 255, 221);">Code Better.</h3>
+                <h3 style="color: rgb(0, 255, 221);">Succeed Together.</h3>
+                <p style="color: rgb(255, 255, 255); margin: 4px 0;">Talk is cheap, show me the code! We provide you a
+                    platform to do just that. </p>
+            </div>
+        </div>
+        <form id="loginForm" action="/login" method="post" class="center-y container">
+            <header class="heading center-y">
+                <h2>Sign in</h2>
+            </header>
+            <div autocomplete="on" class="center-y">
+                <input type="text" id="userEmail" name="userEmail" placeholder="Email or username"
+                    title="Enter your username or email" required>
+                <div style="position: relative;" class="center-x">
+                    <input type="password" name="userPassword" id="userPassword" placeholder="Password"
+                        title="Enter your password" size="16" min="8" max="16" required>
+                    <span class="passwordVisibility" onclick="toggleVisibility()"><img id="passwordVisibilityIcon"
+                            src="https://cdn-icons-png.flaticon.com/512/633/633655.png" alt="Show"></span>
+                </div>
+                <div style="align-self: flex-end; margin-bottom: 1rem;"><a href="#" class="forgotPassword">Forgot
+                        password?</a></div>
+                <input id="signin" type="submit" value="Sign In" title="Sign In">
+            </div>
+        </form>
+    </div>
+    <div onclick="backToTop()" id="backToTopBtn" class="center-x"><img
+            src="https://cdn-icons-png.flaticon.com/512/992/992534.png" alt="totop"></div>
+    </div>
+    <script src="./login.js"></script>
+    <script src="./navbar.js"></script>
+</body>
+
+</html>

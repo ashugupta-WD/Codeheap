@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Codeheap - Tutorial Videos</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords"
+        content="Codeheap,Best tutorial videos on, Javascript, Python, React, Java, C++, C, C programming, Node js, Django, Free source codes download, Free e-books download, Free handwritten notes download, B.tech, Sharing, Upload, E-books, Notes, Best projects for resume">
+    <meta name="robots" content="index, follow">
+    <meta name="description"
+        content="Codeheap is platform where you can watch best of the best filtered tutorial videos on enginneering concepts, programming languages and engineering students recommended tutorial videos.">
+    <link rel="shortcut icon" href="./codeheap.ico" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="./navbarLog.css">
+    <link rel="stylesheet" href="./listStyle.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img class="rounded-circle" src="./logo.png" alt="Codeheap Logo" width="30" height="30">
+            </a>
+            <button id="bar2" class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation" onclick="hamAnimation()">
+                <div id="bar" class="bar"></div>
+            </button>
+            <div class="collapse navbar-collapse bg-dark" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0" id="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="#">Home</a>
+                        <div class="link-active"></div>
+                    </li>
+                    <li class="nav-item d-flex justify-content-center">
+                        <a class="nav-link" href="#">Projects</a>
+                        <div class="link-active"></div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Notes</a>
+                        <div class="link-active"></div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Videos</a>
+                        <div class="link-active"></div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About Us</a>
+                        <div class="link-active"></div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact Us</a>
+                        <div class="link-active"></div>
+                    </li>
+                </ul>
+            </div>
+            <div class="navbar-brand" style="cursor: pointer;" onclick="openProfile()">
+                <img class="rounded-circle" src="https://cdn-icons-png.flaticon.com/512/1256/1256650.png"
+                    alt="User Profile" width="30" height="30">
+            </div>
+            <div id="profileSupportedContent" class="container-fluid bg-dark">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0 d-flex flex-column align-items-center">
+                    <li class="nav-item text-center my-3 px-2"
+                        style="width: 90%; border-radius: 4px; overflow-x: hidden;">
+                        <a class="nav-link" href="#">Your Projects</a>
+                    </li>
+                    <div class="dropdown">
+                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Upload
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <li><a class="dropdown-item" href="#">Javascript</a></li>
+                        </ul>
+                    </div>
+                    <li class="nav-item mt-auto">
+                        <a class="nav-link" href="#">Sign Out</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="parentDiv">
+        <div class="childDiv">
+            <h1 class="text-center">Tutorial Videos List</h1>
+            <p class="center-text">We provide you the best of the best filtered videos from various others learning
+                platforms such as Udemy, Youtube, Unacademy, etc., so you don't have to waste your precious time surfing
+                the internet searching. Just click on the watch link and you are READY TO GO!.
+            </p>
+        </div>
+    </div>
+
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4" style="max-width: 100%; margin: auto;">
+        <div class="col">
+            <div class="card text-center h-100">
+                <img src="./c-freecodecamp.png" class="card-img-top" alt="C prograaming - FreeCodeCamp.org" height="70%">
+                <div class="card-body">
+                    <h2 class="card-title">C Tutorial</h2>
+                </div>
+                <a href="https://www.youtube.com/playlist?list=PLWKjhJtqVAbmUE5IqyfGYEYjrZBYzaT4m"
+                    class="projectLink">Watch Now</a>
+                <div class="card-footer">
+                    <small class="text-muted">By FreeCodeCamp.org</small>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card text-center h-100">
+                <img src="./c-cwh.jpg" class="card-img-top" alt="C prograaming - Code with Harry" height="70%">
+                <div class="card-body">
+                    <h2 class="card-title">C Tutorial</h2>
+                </div>
+                <a href="https://www.youtube.com/playlist?list=PLu0W_9lII9aiXlHcLx-mDH1Qul38wD3aR"
+                    class="projectLink">Watch Now</a>
+                <div class="card-footer">
+                    <small class="text-muted">by Code With Harry</small>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card text-center h-100">
+                <img src="./c-jenny.jpg"
+                    class="card-img-top" alt="C programmimg - Jenny's Lectures" height="70%">
+                <div class="card-body">
+                    <h2 class="card-title">C Tutorial</h2>
+                </div>
+                <a href="https://www.youtube.com/playlist?list=PLdo5W4Nhv31a8UcMN9-35ghv8qyFWD9_S" class="projectLink">Watch Now</a>
+                <div class="card-footer">
+                    <small class="text-muted">By Jenny's Lectures</small>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card text-center h-100">
+                <img src="./cpp-greatleaning.jpg" class="card-img-top" alt="C++ prograaming - Great Learning" height="70%">
+                <div class="card-body">
+                    <h2 class="card-title">C++ Tutorial</h2>
+                </div>
+                <a href="https://www.youtube.com/playlist?list=PLlgLmuG_KgbbuhOTAE8-Pjiro2_ecl1zd"
+                    class="projectLink">Watch Now</a>
+                <div class="card-footer">
+                    <small class="text-muted">By Great Learning</small>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card text-center h-100">
+                <img src="./cpp-cwh.jpg" class="card-img-top" alt="C++ prograaming - Code with Harry" height="70%">
+                <div class="card-body">
+                    <h2 class="card-title">C++ Tutorial</h2>
+                </div>
+                <a href="https://www.youtube.com/playlist?list=PLu0W_9lII9agpFUAlPFe_VNSlXW5uE0YL"
+                    class="projectLink">Watch Now</a>
+                <div class="card-footer">
+                    <small class="text-muted">by Code With Harry</small>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card text-center h-100">
+                <img src="./cpp-shukla.jpg"
+                    class="card-img-top" alt="C++ programmimg - Saurabh Shukla" height="70%">
+                <div class="card-body">
+                    <h2 class="card-title">C++ Tutorial</h2>
+                </div>
+                <a href="https://www.youtube.com/playlist?list=PLLYz8uHU480j37APNXBdPz7YzAi4XlQUF" class="projectLink">Watch Now</a>
+                <div class="card-footer">
+                    <small class="text-muted">By Saurabh Shukla</small>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card text-center h-100">
+                <img src="./java.jpg" class="card-img-top" alt="Java - Programmimg With Mosh" height="70%">
+                <div class="card-body">
+                    <h2 class="card-title">Java Tutorials</h2>
+                </div>
+                <a href="https://www.youtube.com/playlist?list=PLTjRvDozrdlyjm_nKyYt4b5C1zx4Xdaut" class="projectLink">Watch Now</a>
+                <div class="card-footer">
+                    <small class="text-muted">By Programming With Mosh</small>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card text-center h-100">
+                <img src="./java-cwh.jpg" class="card-img-top" alt="Java - Code With Harry" height="70%">
+                <div class="card-body">
+                    <h2 class="card-title">Java Tutorials</h2>
+                </div>
+                <a href="https://www.youtube.com/playlist?list=PLu0W_9lII9agS67Uits0UnJyrYiXhDS6q" class="projectLink">Watch Now</a>
+                <div class="card-footer">
+                    <small class="text-muted">By Code With Harry</small>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card text-center h-100">
+                <img src="./java-edureka.jpg" class="card-img-top" alt="Java - Edureka" height="70%">
+                <div class="card-body">
+                    <h2 class="card-title">Java Tutorials</h2>
+                </div>
+                <a href="https://www.youtube.com/playlist?list=PL9ooVrP1hQOHb4bxoHauWVwNg4FweDItZ" class="projectLink">Source code</a>
+                <div class="card-footer">
+                    <small class="text-muted">By Edureka</small>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card text-center h-100">
+                <img src="./webdev.jpg" class="card-img-top" alt="Web Development - Code With Harry" height="70%">
+                <div class="card-body">
+                    <h2 class="card-title">Web Development Tutorial</h2>
+                </div>
+                <a href="https://www.youtube.com/playlist?list=PLu0W_9lII9agiCUZYRsvtGTXdxkzPyItg" class="projectLink">Watch Now</a>
+                <div class="card-footer">
+                    <small class="text-muted">By Code With Harry</small>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card text-center h-100">
+                <img src="./webdev-traversy.jpg" class="card-img-top" alt="Web Development - Traversy Media" height="70%">
+                <div class="card-body">
+                    <h2 class="card-title">Web Development Tutorial</h2>
+                </div>
+                <a href="https://www.youtube.com/playlist?list=PLillGF-RfqbYeckUaD1z6nviTp31GLTH8" class="projectLink">Watch Now</a>
+                <div class="card-footer">
+                    <small class="text-muted">By Traversy Media</small>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card text-center h-100">
+                <img src="./webdev-edureka.jpg" class="card-img-top" alt="Web Development - Edureka" height="70%">
+                <div class="card-body">
+                    <h2 class="card-title">Web Development Tutorial</h2>
+                </div>
+                <a href="https://www.youtube.com/playlist?list=PL9ooVrP1hQOEloRCBI97ZXkWUg6MJn0Yf" class="projectLink">Watch Now</a>
+                <div class="card-footer">
+                    <small class="text-muted">By Edureka</small>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card text-center h-100">
+                <img src="./python-telusko.jpg" class="card-img-top" alt="Python - Telusko" height="70%">
+                <div class="card-body">
+                    <h2 class="card-title">Python Tutorial</h2>
+                </div>
+                <a href="https://www.youtube.com/playlist?list=PLsyeobzWxl7poL9JTVyndKe62ieoN-MZ3" class="projectLink">Watch Now</a>
+                <div class="card-footer">
+                    <small class="text-muted">By Telusko</small>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card text-center h-100">
+                <img src="./python-harshit.png" class="card-img-top" alt="Python - Harshit Vashisht" height="70%">
+                <div class="card-body">
+                    <h2 class="card-title">Python Tutorial</h2>
+                </div>
+                <a href="https://www.youtube.com/playlist?list=PLwgFb6VsUj_lQTpQKDtLXKXElQychT_2j" class="projectLink">Watch Now</a>
+                <div class="card-footer">
+                    <small class="text-muted">By Harshit Vashisht</small>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card text-center h-100">
+                <img src="./python-cwh.jpg" class="card-img-top" alt="Python - Code With Harry" height="70%">
+                <div class="card-body">
+                    <h2 class="card-title">Python Tutorial</h2>
+                </div>
+                <a href="https://www.youtube.com/playlist?list=PLu0W_9lII9agICnT8t4iYVSZ3eykIAOME" class="projectLink">Watch Now</a>
+                <div class="card-footer">
+                    <small class="text-muted">By Code With Harry</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid mt-5" style="padding: 0;">
+        <footer class="text-center text-lg-start" style="background-color: #000000;">
+            <div class="text-center text-white p-1">
+                <p class="text-white">© 2022 Copyright: codeheap.co.in</p>
+            </div>
+        </footer>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="./navbarLog.js"></script>
+    <script>
+
+    </script>
+</body>
+
+</html>

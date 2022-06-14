@@ -1,0 +1,150 @@
+.signinImage {
+    width: 50%;
+    min-height: 100vh;
+    height: auto;
+    /* background: url(../images/blob-scene-haikei.png) no-repeat center scroll; */
+    background: url('./blob-scene-haikei.png') no-repeat center scroll;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+}
+
+.signinImage > img {
+    width: 80%;
+    height: 20rem;
+}
+
+.signinImage div {
+    color: var(--textPrimary);
+    padding: 0 1rem;
+}
+
+.container {
+    min-height: 100vh;
+    height: auto;
+    width: 50%;
+    background: linear-gradient(to bottom left, #4301FF, #7e00f5);
+    color: white;
+
+}
+
+.heading {
+    color: var(--textPrimary);
+    padding: 1rem;
+    letter-spacing: 1px;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+#userEmail,
+#userPassword {
+    width: 15rem;
+    height: 2rem;
+    border-radius: 1rem;
+    padding: 0 1rem;
+    font-size: 1rem;
+    border-style: none;
+    margin: 1rem 1rem;
+    box-shadow: 4px 4px 1.5rem -4px #00000080;
+    outline: none;
+}
+
+.passwordVisibility {
+    height: 1.2rem;
+    width: 1.2rem;
+    position: absolute;
+    right: 2rem;
+    cursor: pointer;
+}
+
+.passwordVisibility>img {
+    width: 100%;
+    height: 100%;
+}
+
+.forgotPassword {
+    color: var(--textPrimary);
+    font-size: .8rem;
+    margin-right: 1.1rem;
+}
+
+.forgotPassword:hover {
+    color: var(--linkPrimary);
+}
+
+#signin {
+    width: 8rem;
+    height: 2rem;
+    border-radius: 1rem;
+    padding: 0 1rem;
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    border-style: none;
+    margin: 1rem 1rem;
+    background-color: rgb(1, 5, 255);
+    box-shadow: 4px 4px 1rem -4px #00000080;
+}
+
+#signin:hover {
+    box-shadow: 4px 4px 1rem -4px #00c3ff;
+}
+
+@media only screen and (max-width: 992px) {
+    .signinImage>div h1 {
+        font-size: 1.5rem;
+    }
+
+    .signinImage > img {
+        width: 100%;
+        height: 20rem;
+        padding: 1rem;
+    }
+
+    .signinImage>div>h3 {
+        font-size: 1.2rem;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+
+    .signinImage {
+        display: none;
+    }
+
+    .container {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 478px) {
+
+    #userEmail,
+    #userPassword {
+        width: 11rem;
+        font-size: 0.9rem;
+        margin: 0.5rem 0.5rem;
+        box-shadow: 2px 2px 1.5rem -2px #00000080;
+    }
+
+    .passwordVisibility {
+        height: 1rem;
+        width: 1rem;
+        right: 1.2rem;
+    }
+
+    .forgotPassword {
+        font-size: .7rem;
+        margin-right: 1rem;
+    }
+
+    #signin {
+        width: 6rem;
+        margin: 0.5rem 0.5rem;
+        box-shadow: 2px 2px 1rem -2px #00000080;
+    }
+
+    #signin:hover {
+        box-shadow: 2px 2px 1rem -2px #00c3ff;
+    }
+}

@@ -1,0 +1,246 @@
+.snippetContainer {
+    width: 50%;
+    min-height: 100vh;
+    height: auto;
+    background: url("./blob-scene-haikei.png") no-repeat center;
+    background-size: cover;
+}
+
+.codeSnippet {
+    width: 70%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#language {
+    width: 100%;
+    height: 3rem;
+    background: linear-gradient(to bottom left, #4301FF, #7e00f5);
+    color: white;
+    font-size: 1.5rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    border-radius: 2rem;
+    text-align: center;
+    line-height: 3rem;
+    vertical-align: middle;
+}
+
+.codeCard {
+    width: 100%;
+    height: 20rem;
+    align-self: flex-start;
+    border: 2px solid white;
+    border-radius: 0 0 2rem 2rem;
+    border-top: none;
+}
+
+#statement {
+    color: rgb(255, 255, 255);
+    white-space: pre-wrap;
+    font-size: 1.2rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    line-height: 2rem;
+    letter-spacing: 1px;
+}
+
+.container {
+    width: 50%;
+    min-height: 100vh;
+    max-height: auto;
+    background: linear-gradient(135deg, #af01ff, rgb(0, 153, 255));
+    color: white;
+}
+
+.container>h1 {
+    margin: 2rem 0;
+}
+
+#firstName,
+#lastName {
+    width: 12.5rem;
+    margin: 2rem 0.5rem;
+    margin-bottom: 0;
+}
+
+.inputField {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 1rem;
+}
+
+.inputField>input {
+    width: 26rem;
+    height: 2rem;
+    border-radius: 1rem;
+    padding: 0 1rem;
+    font-size: 1rem;
+    border-style: none;
+    box-shadow: 4px 4px 1.5rem -4px #00000080;
+}
+
+.passwordVisibility {
+    width: 26rem;
+    margin: 0.5rem 1rem;
+    font-size: 1.2rem;
+}
+
+#passwordVisibility {
+    height: 1.25rem;
+    width: 1.25rem;
+    border-radius: initial;
+    padding: 0;
+    font-size: initial;
+    border-style: none;
+    margin: 0 0.5rem;
+    box-shadow: none;
+}
+
+#signup {
+    width: 26rem;
+    height: 3rem;
+    border-radius: 1rem;
+    padding: 0 1rem;
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    border-style: none;
+    margin: 1rem 1rem;
+    background: linear-gradient(to bottom left, #4301FF, #7e00f5);
+    filter: none;
+}
+
+#signup:hover {
+    filter: drop-shadow(3px 3px 3px rgb(0, 255, 255));
+}
+
+#signup:disabled {
+    filter: none;
+    background: linear-gradient(to bottom left, #525252, #525252);
+}
+
+@media only screen and (max-width: 992px) {
+
+    .container>h1 {
+        margin: 0 0;
+        margin-top: 1rem;
+    }
+
+    .inputField {
+        justify-content: center;
+        margin: 1rem;
+    }
+
+    .codeSnippet {
+        width: 90%;
+    }
+
+    #firstName,
+    #lastName {
+        width: 20rem;
+        margin: 2rem 1rem;
+        margin-bottom: 0;
+    }
+
+    .inputField>input {
+        width: 20rem;
+        height: 2rem;
+    }
+
+    .passwordVisibility {
+        width: 20rem;
+    }
+
+    #signup {
+        width: 20rem;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .snippetContainer {
+        display: none;
+    }
+
+    .container {
+        width: 100%;
+        background: url("./blob-scene-haikei.png") no-repeat center;
+        background-size: cover;
+    }
+
+    .inputField {
+        margin: 0.75rem;
+        width: 80%;
+        justify-content: initial;
+    }
+
+    #firstName,
+    #lastName {
+        width: 100%;
+        margin: 1rem 0rem;
+        margin-bottom: 0;
+        margin-top: 1.5rem;
+    }
+
+    .inputField>input {
+        width: 100%;
+        height: 2rem;
+    }
+
+    .passwordVisibility {
+        width: 80%;
+    }
+
+    #signup {
+        width: 80%;
+    }
+
+    .container>h1 {
+        margin-bottom: 1rem;
+    }
+}
+
+@media only screen and (max-width: 478px) {
+
+    .inputField {
+        width: 100%;
+        margin: 0.5rem 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #firstName,
+    #lastName {
+        width: 95%;
+        max-width: 100%;
+        margin: 0;
+        margin-top: 1rem;
+    }
+
+    .inputField>input {
+        width: 95%;
+        height: 2rem;
+        margin: 0 0.5rem;
+    }
+
+    .passwordVisibility {
+        width: 95%;
+        margin: 0.5rem 0rem;
+        font-size: 1rem;
+    }
+
+    #passwordVisibility {
+        height: 1rem;
+        width: 1rem;
+    }
+
+    #signup {
+        width: 95%;
+        line-height: 1rem;
+        vertical-align: middle;
+    }
+}

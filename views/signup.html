@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codeheap - Sign Up</title>
+    <link rel="stylesheet" href="./navbar.css">
+    <link rel="stylesheet" href="./signup.css">
+</head>
+
+<body>
+    <nav id="navbar">
+        <div style="display: flex;">
+            <a id="logo" href="#homeSection" class="center-x"><img id="logoImage" src="./logo.png" alt="Logo"></a>
+            <span id="ham" class="center-x" onclick="hamOpen()">
+                <span id="bar"></span>
+            </span>
+        </div>
+        <ul id="nav">
+            <li class="center-y link link-active">
+                <a href="#homeSection" class="center-x">Home</a>
+                <span></span>
+            </li>
+            <li class="link center-y">
+                <a href="#projectSection" class="center-x">Projects</a>
+                <span></span>
+            </li>
+            <li class="link center-y">
+                <a href="#notesSection" class="center-x">Notes</a>
+                <span></span>
+            </li>
+            <li class="link center-y">
+                <a href="#videosSection" class="center-x">Videos</a>
+                <span></span>
+            </li>
+            <li class="link center-y">
+                <a href="#aboutSection" class="center-x">About Us</a>
+                <span></span>
+            </li>
+            <li class="center-y">
+                <a href="#" class="center-x">Contact Us</a>
+                <span></span>
+            </li>
+        </ul>
+        <div id="signUp" class="center-x">
+            <a href="#" class="center-x">Sign in</a>
+        </div>
+    </nav>
+    <div onclick="backToTop()" id="backToTopBtn" class="center-x"><img
+            src="https://cdn-icons-png.flaticon.com/512/992/992534.png" alt="totop"></div>
+    <aside class="menuContent">
+        <div id="menu">
+            <a href="#homeSection"><img src="https://cdn-icons-png.flaticon.com/512/25/25694.png" alt="Home">Home</a>
+            <a href="projectSection"><img src="https://cdn-icons-png.flaticon.com/512/1336/1336989.png"
+                    alt="Projects">Projects</a>
+            <a href="notesSection"><img src="https://cdn-icons-png.flaticon.com/512/3075/3075908.png"
+                    alt="Notes">Notes</a>
+            <a href="#videosSection"><img src="https://cdn-icons-png.flaticon.com/512/2991/2991195.png"
+                    alt="Videos">Videos</a>
+            <a href="#aboutSection"><img src="https://cdn-icons-png.flaticon.com/512/1187/1187544.png" alt="Blog">About
+                Us</a>
+            <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/2343/2343522.png" alt="ContactInfo">Contact
+                Us</a>
+        </div>
+    </aside>
+    <div style="display: flex; height: auto;">
+        <div class="snippetContainer center-y">
+            <div class="codeSnippet">
+                <div id="language"></div>
+                <div class="codeCard">
+                    <pre style="padding: 1rem;"><code id="statement" class="language-python"></code></pre>
+                </div>
+            </div>
+        </div>
+        <div class="container center-y">
+            <h1>Sign Up</h1>
+            <form id="signupForm" action="/signup" method="post" autocomplete="on" class="center-y"
+                style="width: 100%;">
+                <div class="inputField">
+                    <input type="text" id="firstName" name="firstName" placeholder="First name"
+                        title="Enter your first name" minlength="3" required>
+                    <input type="text" id="lastName" name="lastName" placeholder="Last Name"
+                        title="Enter your last name" minlength="3" required>
+                </div>
+                <div class="inputField">
+                    <input type="email" id="userEmail" name="userEmail" placeholder="Email" title="Enter your email"
+                        required onblur="emailValidation()">
+                </div>
+                <div class="inputField">
+                    <input type="tel" id="userPhone" name="userPhone" placeholder="Mobile number"
+                        title="Enter your Mobile number" maxlength="10" minlength="10" required>
+                </div>
+                <div class="inputField">
+                    <input type="password" name="userPassword" id="userPassword" placeholder="Password"
+                        title="Enter your password" size="16" minlength="8" maxlength="16" required
+                        oninput="passwordValidation()" onfocus="passwordInfo()">
+                </div>
+                <div class="inputField">
+                    <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm"
+                        title="Re-enter your password" size="16" minlength="8" maxlength="16" required disabled
+                        oninput="passwordMatch()">
+                </div>
+                <div class="passwordVisibility">
+                    <input type="checkbox" id="passwordVisibility" value="showPassword" onchange="toggleVisibility()">
+                    <label for="passwordVisibility">Show password</label>
+                </div>
+                <input id="signup" type="submit" value="Sign up">
+            </form>
+        </div>
+    </div>
+
+    <script src="./navbar.js"></script>
+    <script src="./signup.js"></script>
+</body>
+
+</html>
