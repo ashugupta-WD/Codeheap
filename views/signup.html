@@ -2,66 +2,71 @@
 <html lang="en">
 
 <head>
+    <title>Codeheap - Sign Up</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Codeheap - Sign Up</title>
-    <link rel="stylesheet" href="./navbar.css">
-    <link rel="stylesheet" href="./signup.css">
+    <meta name="keywords" content="codeheap, Codeheap, Free e-books download, Free handwritten notes download, Project source code free download, Upload, Best titorial videos, B.tech notes, Engineering notes, B.tech projects, Engineering projects">
+    <meta name="description"
+        content="Codeheap is a platform that provide you with free source codes of professional projects that might land you a job more often than not. We also free handwritten notes and e-books, keeping in mind your academic performance as well. We also provide best of the best filtered videos across various oyher platforms such as Youtube, Udemy, Unacademy, etc., so that you don't have to waste your precious time surfing the internet sorting that out.">
+    <link rel="shortcut icon" href="images/codeheap.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/signup.css">
 </head>
 
 <body>
     <nav id="navbar">
         <div style="display: flex;">
-            <a id="logo" href="#homeSection" class="center-x"><img id="logoImage" src="./logo.png" alt="Logo"></a>
+            <a id="logo" href="#homeSection" class="center-x"><img id="logoImage" src="images/logo.png" alt="Logo"></a>
             <span id="ham" class="center-x" onclick="hamOpen()">
                 <span id="bar"></span>
             </span>
         </div>
         <ul id="nav">
             <li class="center-y link link-active">
-                <a href="#homeSection" class="center-x">Home</a>
+                <a href="/" class="center-x">Home</a>
                 <span></span>
             </li>
             <li class="link center-y">
-                <a href="#projectSection" class="center-x">Projects</a>
+                <a href="/#projectSection" class="center-x">Projects</a>
                 <span></span>
             </li>
             <li class="link center-y">
-                <a href="#notesSection" class="center-x">Notes</a>
+                <a href="/#notesSection" class="center-x">Notes</a>
                 <span></span>
             </li>
             <li class="link center-y">
-                <a href="#videosSection" class="center-x">Videos</a>
+                <a href="/#videosSection" class="center-x">Videos</a>
                 <span></span>
             </li>
             <li class="link center-y">
-                <a href="#aboutSection" class="center-x">About Us</a>
+                <a href="/#aboutSection" class="center-x">About Us</a>
                 <span></span>
             </li>
             <li class="center-y">
-                <a href="#" class="center-x">Contact Us</a>
+                <a href="/contact" class="center-x">Contact Us</a>
                 <span></span>
             </li>
         </ul>
         <div id="signUp" class="center-x">
-            <a href="#" class="center-x">Sign in</a>
+            <a href="/login" class="center-x">Sign in</a>
         </div>
     </nav>
     <div onclick="backToTop()" id="backToTopBtn" class="center-x"><img
             src="https://cdn-icons-png.flaticon.com/512/992/992534.png" alt="totop"></div>
     <aside class="menuContent">
         <div id="menu">
-            <a href="#homeSection"><img src="https://cdn-icons-png.flaticon.com/512/25/25694.png" alt="Home">Home</a>
-            <a href="projectSection"><img src="https://cdn-icons-png.flaticon.com/512/1336/1336989.png"
+            <a href="/"><img src="https://cdn-icons-png.flaticon.com/512/25/25694.png" alt="Home">Home</a>
+            <a href="/#projectSection"><img src="https://cdn-icons-png.flaticon.com/512/1336/1336989.png"
                     alt="Projects">Projects</a>
-            <a href="notesSection"><img src="https://cdn-icons-png.flaticon.com/512/3075/3075908.png"
+            <a href="/#notesSection"><img src="https://cdn-icons-png.flaticon.com/512/3075/3075908.png"
                     alt="Notes">Notes</a>
-            <a href="#videosSection"><img src="https://cdn-icons-png.flaticon.com/512/2991/2991195.png"
+            <a href="/#videosSection"><img src="https://cdn-icons-png.flaticon.com/512/2991/2991195.png"
                     alt="Videos">Videos</a>
             <a href="#aboutSection"><img src="https://cdn-icons-png.flaticon.com/512/1187/1187544.png" alt="Blog">About
                 Us</a>
-            <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/2343/2343522.png" alt="ContactInfo">Contact
+            <a href="/contact"><img src="https://cdn-icons-png.flaticon.com/512/2343/2343522.png"
+                    alt="ContactInfo">Contact
                 Us</a>
         </div>
     </aside>
@@ -110,9 +115,12 @@
             </form>
         </div>
     </div>
-
-    <script src="./navbar.js"></script>
-    <script src="./signup.js"></script>
+    <footer>
+        <p>For more information contact us at : codeatcodeheap@gmail.com</p>
+        <p>&#169; 2022 by Ashwani/Rajan. All rights reserved </p>
+    </footer>
+    <script src="js/navbar.js"></script>
+    <script src="js/signup.js"></script>
 </body>
 
 </html>

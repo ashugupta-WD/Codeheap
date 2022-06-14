@@ -22,7 +22,7 @@ body, html {
   width: 100%;
   height: 17rem;
   max-height: auto;
-  background: url("https://media4.giphy.com/media/326d5iOUoYY8N6uFPm/giphy.gif") no-repeat center fixed;
+  background: url("https://images.unsplash.com/photo-1531275090635-95f0974c3073?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mzh8fGhkJTIwYmFja2dyb3VuZHxlbnwwfDB8MHx8&auto=format&fit=crop&w=500&q=60") no-repeat center fixed;
   background-size: cover;
 }
 
@@ -70,7 +70,7 @@ body, html {
 .cardContent {
   width: 50%;
   height: 100%;
-  background: url('./blob-scene-haikei.png') no-repeat center;
+  background: url('../images/blob.png') no-repeat center;
   background-size: cover;
   background-attachment: scroll;
 }
@@ -185,7 +185,7 @@ body, html {
   border-left: 0;
   border-right: 0;
   padding: 1rem;
-  background: url('https://miro.medium.com/max/1400/1*aOojfLFDcFqHdZkDxG6QFw.jpeg') no-repeat scroll center;
+  background: url('https://images.unsplash.com/photo-1482784160316-6eb046863ece?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80') no-repeat scroll center;
   background-size: cover;
   flex-wrap: wrap;
 }
@@ -256,18 +256,6 @@ body, html {
   border-radius: 50%;
 }
 
-footer {
-  padding: 1rem;
-  background-color: var(--bodyPrimary);
-}
-
-footer>p {
-  font-weight: 200;
-  font-family: monospace;
-  font-size: 12px;
-  text-align: center;
-}
-
 @media only screen and (max-width: 1200px) {
 
   .projectContainer,
@@ -319,7 +307,7 @@ footer>p {
   .cardContent {
     width: 50%;
     height: 100%;
-    background: url('./blob-scene-haikei.png') no-repeat center;
+    background: url('../images/blob.png') no-repeat center;
     background-size: cover;
     background-attachment: scroll;
   }

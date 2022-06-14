@@ -165,6 +165,11 @@ html {
     background-color: var(--linkSecondry);
 }
 
+.active {
+    color: var(--textPrimary);
+    background: var(--bgPrimary);
+}
+
 #nav .link-active span {
     width: 100%;
     height: 4px;
@@ -292,6 +297,19 @@ html {
 
 #backToTopBtn:hover {
     opacity: 1;
+}
+
+footer {
+    padding: 1rem;
+    background-color: var(--navPrimary);
+    color: var(--textPrimary) ;
+}
+
+footer>p {
+    font-weight: 200;
+    font-family: monospace;
+    font-size: 12px;
+    text-align: center;
 }
 
 

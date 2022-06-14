@@ -2,7 +2,7 @@
     width: 50%;
     min-height: 100vh;
     height: auto;
-    background: url("./blob-scene-haikei.png") no-repeat center;
+    background: url("../images/blob.png") no-repeat center;
     background-size: cover;
 }
 
@@ -166,7 +166,7 @@
 
     .container {
         width: 100%;
-        background: url("./blob-scene-haikei.png") no-repeat center;
+        background: url("../images/blob.png") no-repeat center;
         background-size: cover;
     }
 

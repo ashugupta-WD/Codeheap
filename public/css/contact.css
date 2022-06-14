@@ -11,7 +11,7 @@ section {
     height: 100vh;
     display: flex;
     align-items: center;
-    background: url('./contact.gif') no-repeat center scroll;
+    background: url('../images/contact.gif') no-repeat center scroll;
     background-size: cover;
 }
 
@@ -92,7 +92,7 @@ footer>p {
 @media only screen and (max-width: 992px) {
     section {
         justify-content: center;
-        background: url('./blob-scene-haikei.png') no-repeat center scroll;
+        background: url('../images/blob.png') no-repeat center scroll;
         background-size: cover;
     }
 

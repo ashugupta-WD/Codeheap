@@ -21,9 +21,7 @@ const codeSnippets = [
 ];
 
 
-if (window.outerWidth > 768) {
-    setTimeout(startPrinting, 1000);
-}
+setTimeout(startPrinting, 1000);
 
 function startPrinting() {
     document.getElementById(`language`).innerText = `${codeSnippets[num].language}`;
