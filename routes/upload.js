@@ -1,13 +1,11 @@
 const express = require('express');
 const app = express();
-const fs = require('fs/promises');
 const router = express.Router();
 const path = require('path');
 const { upload } = require('../middleware/fileUpload')
 const Project = require('../models/Project');
 const Visitor = require('../models/Visitors');
 const fetchAuthUser = require('../middleware/fetchTokenData');
-const { readCodeFile } = require('../middleware/codeToText');
 app.use(express.json());
 
 // @route 1: FETCH ALL PROJECTS OF A USER. --> ( LOGIN REQUIRED )

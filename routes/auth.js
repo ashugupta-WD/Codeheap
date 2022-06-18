@@ -3,7 +3,7 @@ const router = express.Router();
 const path = require('path');
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
-const fs = require('fs/promises');
+const fs = require('fs');
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 const Project = require('../models/Project');
@@ -275,9 +275,9 @@ router.get('/showproject', fetchAuthUser, async (req, res) => {
             if (JSON.stringify(projects[0].user) !== JSON.stringify(req.userData[0]._id)) {
                 await Project.updateOne({ _id: req.query.projectId }, { $inc: { views: 1 } });
             }
-            const htmlText = await readCodeFile(projects[0].htmlPath, ((res) => { return res; }));
-            const cssText = await fs.readFile(projects[0].cssPath, 'utf-8');
-            const jsText = await fs.readFile(projects[0].jsPath, 'utf-8');
+            const htmlText = await readCodeFile(projects[0].htmlPath);
+            const cssText = await fs.promises.readFile(projects[0].cssPath, 'utf-8');
+            const jsText = await fs.promises.readFile(projects[0].jsPath, 'utf-8');
             res.status(200).render('viewProject', { info: { video: changePath(projects[0].videoPath), title: projects[0].title, description: projects[0].description, html: htmlText, css: cssText, js: jsText, author: (req.userData[0].firstName + ' ' + req.userData[0].lastName), time: getTimeDifference(projects[0].timeStamp) } });
         } catch (error) {
             console.log(error);
