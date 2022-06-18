@@ -142,7 +142,27 @@ body {
     width: 90%;
 }
 
+#backToTopBtn {
+    display: none;
+    position: fixed;
+    width: 2rem;
+    height: 2rem;
+    opacity: 0.9;
+    bottom: 1rem;
+    right: 2rem;
+    z-index: 109;
+    cursor: pointer;
+    border-radius: 50%;
+}
 
+#backToTopBtn>img {
+    width: 100%;
+    height: 100%;
+}
+
+#backToTopBtn:hover {
+    opacity: 1;
+}
 
 @media only screen and (max-width: 768px) {
 

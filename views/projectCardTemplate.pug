@@ -1,0 +1,8 @@
+.col.noteCard.mb-5
+  .card.text-center.h-100
+    .card-body
+      img.img-fluid(src=project.image alt=project.title)
+    h6 #{project.title} in #{project.language}
+    a.listLink(id=project.projectId onclick='showProject(this.id)') Source Code
+  .card-footer.text-center
+    small By #{project.author} - #{project.time}

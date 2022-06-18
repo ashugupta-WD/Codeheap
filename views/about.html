@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/codeheap.ico" type="image/x-icon">
+    <title>Codeheap - About Us</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/navbarLog.css">
+    <link rel="stylesheet" href="css/about.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/home">
+                <img class="rounded-circle" src="images/logo.png" alt="Codeheap Logo" width="30" height="30">
+            </a>
+            <button id="bar2" class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation" onclick="hamAnimation()">
+                <div id="bar" class="bar"></div>
+            </button>
+            <div class="collapse navbar-collapse bg-dark" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0" id="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="/home">Home</a>
+                        <div class="link-active"></div>
+                    </li>
+                    <li class="nav-item d-flex justify-content-center">
+                        <a class="nav-link" href="/projects">Projects</a>
+                        <div class="link-active"></div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/notes">Notes</a>
+                        <div class="link-active"></div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/videos">Videos</a>
+                        <div class="link-active"></div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/about">About Us</a>
+                        <div class="link-active"></div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contact">Contact Us</a>
+                        <div class="link-active"></div>
+                    </li>
+                </ul>
+            </div>
+            <div class="navbar-brand" style="cursor: pointer;" onclick="openProfile()">
+                <img class="rounded-circle" src="images/profile.png"
+                    alt="User Profile" width="30" height="30">
+            </div>
+            <div id="profileSupportedContent" class="container-fluid bg-dark">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0 d-flex flex-column align-items-center">
+                    <li class="nav-item text-center my-3 px-2"
+                        style="width: 90%; border-radius: 4px; overflow-x: hidden;">
+                        <a class="nav-link" href="/projects">Your Projects</a>
+                    </li>
+                    <div class="dropdown">
+                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Upload
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <li><a class="dropdown-item" href="/upload/uploadjs">Javascript</a></li>
+                        </ul>
+                    </div>
+                    <li class="nav-item mt-auto">
+                        <a class="nav-link" href="/logout">Sign Out</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div onclick="backToTop()" id="backToTopBtn" class="center-x"><img
+        src="images/backtotop.png" alt="totop"></div>
+    <div class="bg-light">
+        <div class="container py-5">
+            <div class="row h-100 align-items-center py-5">
+                <div class="col-lg-6">
+                    <h1 class="display-4">We are glad that you want to know more about us!</h1>
+                    <p class="lead text-muted mb-0">We provide you the platform to download source codes of best
+                        possible projects to
+                        kickstart you programming career as well as showcase your coding skills to the whole coding
+                        community,
+                        we also give you the best of the best filtered videos from various others learning
+                        platforms such as Udemy, Youtube, Unacademy, etc., so you don't have to waste your precious time
+                        surfing
+                        the internet searching and best handwritten notes and e-books so that you don't fall behind in
+                        academic
+                        department.</p>
+                </div>
+                <div class="col-lg-6 d-none d-lg-block"><img
+                        src="images/aboutus-1.png" alt="About-us-image-1" class="img-fluid"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-white py-5">
+        <div class="container py-5">
+            <div class="row align-items-center mb-5">
+                <div class="col-lg-6 order-2 order-lg-1"><i class="fa fa-bar-chart fa-2x mb-3 text-primary"></i>
+                    <h2 class="font-weight-light">Download and Upload Projects</h2>
+                    <p class="font-italic text-muted mb-4">We provide you with source code of simplest of projects like
+                        an calculator to start
+                        your prograaming joutney adorned with bugs to the source
+                        codes of full fledged deployment level websites that are in high in demand at industrial level,
+                        appliaction and software programs in all possible prograaming languages. So what are you waiting for, Let's
+                        CODE!</p><a href="/projects" class="btn btn-light px-5 rounded-pill shadow-sm">Learn More</a>
+                </div>
+                <div class="col-lg-5 px-5 mx-auto order-1 order-lg-2"><img
+                        src="images/aboutus-2.jpg" alt="About-us-image-2"
+                        class="img-fluid mb-4 mb-lg-0"></div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-lg-5 px-5 mx-auto"><img src="images/aboutus-3.jpg"
+                        alt="About-us-image-3" class="img-fluid mb-4 mb-lg-0"></div>
+                <div class="col-lg-6"><i class="fa fa-leaf fa-2x mb-3 text-primary"></i>
+                    <h2 class="font-weight-light">E-books and Notes</h2>
+                    <p class="font-italic text-muted mb-4">We provide you the best of the best filtered notes from various others learning
+                        websites, so you don't have to waste your precious time surfing
+                        the internet searching. Notes on engineering subjects, programming concepts as well as profeesors
+                        recommended notes for sessional and semester purposes.</p><a href="/notes"
+                        class="btn btn-light px-5 rounded-pill shadow-sm">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-light py-5">
+        <div class="container py-5">
+            <div class="row mb-4">
+                <div class="col-lg-5">
+                    <h2 class="display-4 font-weight-light">Our team</h2>
+                    <p class="font-italic text-muted">We came up with the idea of creating this website as a college
+                        project, but the more we worked on this project, the more we realised that this website could
+                        help other programmers as well as our juniors in college to save their precious time and energy
+                        surfing the internet to lokk for resource or study material. So we gave this project o fours the
+                        top priority.</p>
+                </div>
+            </div>
+
+            <div class="row text-center">
+                <!-- Team item-->
+                <div class="col-xl-3 col-sm-6 mb-5">
+                    <div class="bg-white rounded shadow-sm py-5 px-4"><img
+                            src="images/ashwani.jpeg" alt="Ashwani Gupta" width="100"
+                            class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+                        <h5 class="mb-0">Ashwani Gupta</h5><span class="small text-uppercase text-muted">CEO -
+                            Founder</span>
+                        <ul class="social mb-0 list-inline mt-3">
+                            <li class="list-inline-item"><a href="#" class="social-link"><i
+                                        class="fa fa-facebook-f"></i></a></li>
+                            <li class="list-inline-item"><a href="#" class="social-link"><i
+                                        class="fa fa-twitter"></i></a></li>
+                            <li class="list-inline-item"><a href="#" class="social-link"><i
+                                        class="fa fa-instagram"></i></a></li>
+                            <li class="list-inline-item"><a href="#" class="social-link"><i
+                                        class="fa fa-linkedin"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- End-->
+
+                <!-- Team item-->
+                <div class="col-xl-3 col-sm-6 mb-5">
+                    <div class="bg-white rounded shadow-sm py-5 px-4"><img
+                            src="images/rajan.jpg" alt="Rajan Singh" width="100"
+                            class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+                        <h5 class="mb-0">Rajan Singh</h5><span class="small text-uppercase text-muted">CEO -
+                            Founder</span>
+                        <ul class="social mb-0 list-inline mt-3">
+                            <li class="list-inline-item"><a href="https://www.facebook.com/" class="social-link"><i
+                                        class="fa fa-facebook-f"></i></a></li>
+                            <li class="list-inline-item"><a href="https://twitter.com/i/flow/login" class="social-link"><i
+                                        class="fa fa-twitter"></i></a></li>
+                            <li class="list-inline-item"><a href="https://www.instagram.com/?hl=en" class="social-link"><i
+                                        class="fa fa-instagram"></i></a></li>
+                            <li class="list-inline-item"><a href="https://in.linkedin.com/" class="social-link"><i
+                                        class="fa fa-linkedin"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <footer class="bg-light pb-5">
+        <div class="container text-center">
+            <p class="font-italic text-muted mb-0">&copy; Copyrights codeheap.co.in All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/e40d871673.js" crossorigin="anonymous"></script>
+    <script src="js/navbarLog.js"></script>
+</body>
+
+</html>

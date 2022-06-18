@@ -1,0 +1,75 @@
+doctype html
+head
+  title Codeheap - All Projects
+  meta(charset='utf-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1')
+  meta(name='keywords' content='Codeheap, Free source codes download, Free e-books download, Free handwritten notes download, B.tech, Sharing, Upload, E-books, Notes, Best projects for resume')
+  meta(name='robots' content='index, follow')
+  meta(name='description' content='Codeheap is platform where you can download free source code of industrial level projects, free easy to understand e-books, handwritten notes and watch engineering students recommended tutorial videos.')
+  link(rel='shortcut icon' href='images/codeheap.ico' type='image/x-icon')
+  link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC' crossorigin='anonymous')
+  link(rel='preconnect' href='https://fonts.googleapis.com')
+  link(rel='preconnect' href='https://fonts.gstatic.com' crossorigin='')
+  link(rel='stylesheet' href='css/navbarLog.css')
+  link(rel='stylesheet' href='css/projectList.css')
+nav.navbar.navbar-expand-md.navbar-dark.bg-dark.fixed-top
+  .container-fluid
+    a.navbar-brand(href='/home')
+      img.rounded-circle(src='images/logo.png' alt='Codeheap Logo' width='30' height='30')
+    button#bar2.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation' onclick='hamAnimation()')
+      #bar.bar
+    #navbarSupportedContent.collapse.navbar-collapse.bg-dark
+      ul#navbar-nav.navbar-nav.me-auto.mb-2.mb-md-0
+        li.nav-item
+          a.nav-link(aria-current='page' href='/home') Home
+          .link-active
+        li.nav-item.d-flex.justify-content-center
+          a.nav-link.active(href='/projects') Projects
+          .link-active
+        li.nav-item
+          a.nav-link(href='/notes') Notes
+          .link-active
+        li.nav-item
+          a.nav-link(href='/videos') Videos
+          .link-active
+        li.nav-item
+          a.nav-link(href='/about') About Us
+          .link-active
+        li.nav-item
+          a.nav-link(href='/contact') Contact Us
+          .link-active
+    .navbar-brand(style='cursor: pointer;' onclick='openProfile()')
+      img.rounded-circle(src='images/profile.png' alt='User Profile' width='30' height='30')
+    #profileSupportedContent.container-fluid.bg-dark
+      ul.navbar-nav.me-auto.mb-2.mb-md-0.d-flex.flex-column.align-items-center
+        li.nav-item.text-center.my-3.px-2(style='width: 90%; border-radius: 4px; overflow-x: hidden;')
+          a.nav-link(href='/myprojects') Your Projects
+        .dropdown
+          button#dropdownMenuButton1.btn.btn-primary.dropdown-toggle(type='button' data-bs-toggle='dropdown' aria-expanded='false')
+            | Upload
+          ul.dropdown-menu(aria-labelledby='dropdownMenuButton1')
+            li
+              a.dropdown-item(href='/uploadjs') Javascript
+        li.nav-item.mt-auto
+          a.nav-link(href='/logout') Sign Out
+#backToTopBtn.center-x(onclick='backToTop()')
+  img(src='images/backtotop.png' alt='totop')          
+.parentDiv
+  .childDiv
+    h1.text-center PROJECTS LIST
+    p.center-text
+      | We provide you with source code of simplest of projects like an calculator to start
+      | your prograaming joutney adorned with bugs to the source
+      | codes of full fledged deployment level websites that are in high in demand at industrial level,
+      | appliaction
+      | and software programs in all possible prograaming languages. So what are you waiting for, Let&apos;s CODE!
+.row.row-cols-1.row-cols-sm-2.row-cols-md-3.row-cols-xxl-3.g-3(style='max-width: 100%; margin: auto;')
+  each project in list
+    include projectCardTemplate.pug
+.container-fluid.mt-5(style='padding: 0;')
+  footer.text-center.text-lg-start(style='background-color: #000000;')
+    .text-center.text-white.p-1
+      p.text-white &copy; 2022 Copyright: codeheap.co.in
+script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js' integrity='sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM' crossorigin='anonymous')
+script(src='js/navbarLog.js')
+script(src='js/projectList.js') 

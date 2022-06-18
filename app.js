@@ -18,15 +18,9 @@ app.use(
     })
 );
 
-
 app.use(express.json());
 app.use('/', require('./routes/auth'));
-// app.use('/myprojects', require('./routes/upload'));
-// app.use('/projects', require('./routes/displayProject'));
-
-app.get('/', async (req, res)=>{
-    res.status(200).sendFile(path.join(__dirname + '/views/landing.html'));
-});
+app.use('/upload', require('./routes/upload'));
 
 app.listen(port, () => {
     console.log(`Example app listening on port http://localhost:${port}`);

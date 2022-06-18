@@ -214,6 +214,7 @@ html {
     width: 100%;
     padding: 0 1rem;
     background: var(--alertSuccess);
+    font-weight: 500;
 }
 
 .alert>strong {

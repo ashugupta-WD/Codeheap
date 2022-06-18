@@ -40,3 +40,17 @@ function openProfile() {
         document.body.style.overflowY = 'visible';
     }
 }
+
+window.onscroll = function () { scrollFunction() };
+function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById(`backToTopBtn`).style.display = "flex";
+    } else {
+        document.getElementById(`backToTopBtn`).style.display = "none";
+    }
+}
+
+function backToTop() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+}

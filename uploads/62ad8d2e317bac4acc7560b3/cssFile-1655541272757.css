@@ -1,0 +1,456 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+:root {
+    --text-color: #ffffff;
+    --bg-color: #3f2d91;
+    --my-1: 1rem 0;
+    --py-1: 1rem 0;
+    --active-shadow: #00faaf;
+}
+
+body {
+    font-size: 16px;
+}
+
+.center-x {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.center-y {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h2 {
+    text-align: center;
+    padding: var(--py-1);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+#diffMode {
+    text-align: center;
+    font-size: 1.2rem;
+    margin: var(--my-1);
+}
+
+#diffMode>h3 {
+    margin-bottom: 0.5rem;
+}
+
+#diffMode > div {
+    font-size: 1.25rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    width: 50%;
+    padding: 0.5rem 0;
+    border-radius: 1rem;
+    margin: .6rem 0;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.unactive {
+    box-shadow: 0px 0px 4px 3px rgb(0, 100, 250);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+.unactive:hover {
+    box-shadow: 0px 0px 4px 3px var(--active-shadow);
+}
+
+.active,
+.active:hover {
+    box-shadow: 0 0 4px 3px var(--active-shadow) inset;
+}
+
+.btnactive,
+.btnactive:hover {
+    box-shadow: 0 0 4px 3px var(--active-shadow);
+    ;
+}
+
+#start {
+    display: none;
+    font-size: 1.5rem;
+    color: var(--text-color);
+    font-weight: bold;
+    letter-spacing: 1px;
+    width: 40%;
+    padding: 0.5rem 0;
+    border-radius: 1rem;
+    margin: 5rem 0;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+
+#game {
+    display: none;
+    width: 100%;
+}
+
+.container {
+    margin: var(--my-1);
+    position: relative;
+    height: 15rem;
+    width: 15rem;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+}
+
+#three,
+#six,
+#nine {
+    border-right: 0;
+}
+
+#seven,
+#eight,
+#nine {
+    border-bottom: 0;
+}
+
+.container span {
+    height: 5rem;
+    width: 5rem;
+    border-style: solid;
+    border-color: black;
+    border-width: thick;
+    cursor: pointer;
+    font-size: 2.5rem;
+    border-top: 0;
+    border-left: 0;
+    box-shadow: 0px 0px 4px 3px rgb(0, 100, 250) inset;
+}
+
+.container span:hover {
+    box-shadow: 0px 0px 4px 3px var(--active-shadow) inset;
+}
+
+
+.menu {
+    margin: var(--my-1);
+}
+
+#restart,
+#mainMenu {
+    width: 10rem;
+    height: 3rem;
+    cursor: pointer;
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin: var(--my-1);
+    border-radius: 1.5rem;
+    letter-spacing: 0.5px;
+}
+
+.playerSelect {
+    width: 100%;
+    height: 15rem;
+    display: none;
+    background-color: black;
+    margin: -2px 0;
+}
+
+.player-1,
+.player-2 {
+    width: 50%;
+    height: 2.5rem;
+    margin: 0.5rem 0;
+}
+
+.player-1 span,
+.player-2 span {
+    width: 100%;
+    height: 100%;
+    border-radius: 1rem;
+    font-size: 1.25rem;
+    cursor: pointer;
+    font-weight: bold;
+    color: var(--text-color);
+    padding: 0.25rem .5rem;
+    margin: 0 0.5rem;
+    background-color: var(--bg-color);
+}
+
+.player-1 input,
+.player-2 input {
+    height: 2.5rem;
+    width: 10rem;
+    border-radius: 1.5rem;
+    padding-left: .5rem;
+    font-size: 1.2rem;
+}
+
+#play,
+#skip {
+    height: 2rem;
+    width: 7rem;
+    cursor: pointer;
+    border-radius: 1rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin: 0.5rem 0.5rem;
+}
+
+.pTurn {
+    width: 50%;
+    font-size: 1.25rem;
+    font-weight: bold;
+    justify-content: space-between;
+    text-align: center;
+    color: var(--text-color);
+    margin: var(--my-1);
+}
+
+.pActive {
+    box-shadow: 0 0 4px 4px var(--active-shadow);
+    background-color: rgb(110, 111, 182);
+}
+
+.pUnactive {
+    box-shadow: 0 0 4px 4px rgb(77, 77, 78);
+    background-color: rgb(109, 109, 109);
+}
+
+#player-1,
+#player-2 {
+    border-radius: 1rem;
+    width: 45%;
+    height: 2.5rem;
+}
+
+.win {
+    width: 0;
+    height: 0;
+    border-radius: 1rem;
+    background-color: var(--active-shadow);
+    position: absolute;
+    transition: all 0.5s ease-in-out;
+}
+
+#DC {
+    transform: translateY(-0.0rem) rotate(45deg);
+}
+
+#DAC {
+    transform: translateY(-0.0rem) rotate(-45deg);
+}
+
+.win-D {
+    width: 17rem;
+    height: .5rem;
+}
+
+#H-3 {
+    transform: translateY(0);
+}
+
+.win-H {
+    transform: translateY(-.15rem);
+    width: 13rem;
+    height: .5rem;
+}
+
+.win-C {
+    width: .5rem;
+    height: 13rem;
+}
+
+#C-3 {
+    transform: translateX(5rem);
+}
+
+#C-1 {
+    transform: translateX(-5.15rem);
+}
+
+.winner {
+    position: absolute;
+    color: var(--text-color);
+    height: 0rem;
+    width: 0rem;
+    opacity: 1;
+    letter-spacing: 1px;
+    text-align: center;
+    font-size: 2rem;
+    text-shadow: 2px 2px rgb(0, 100, 250);
+    font-weight: bold;
+    background-color: rgb(0, 0, 0);
+    transition: all 1s ease-in-out;
+}
+
+.Won {
+    opacity: 1;
+    width: 15rem;
+    height: 15rem;
+}
+
+@media only screen and (max-width:768px) {
+    #diffMode {
+        font-size: 1.1rem;
+    }
+
+    #diffMode div {
+        font-size: 1.2rem;
+        width: 70%;
+    }
+
+    #start {
+        font-size: 1.3rem;
+        width: 60%;
+        padding: 0.5rem 0;
+        margin: 4rem 0;
+    }
+
+    .pTurn {
+        width: 80%;
+    }
+
+
+}
+
+@media only screen and (max-width: 468px) {
+    h2 {
+        font-size: 1.1rem;
+    }
+
+    #diffMode {
+        font-size: 1.0rem;
+        margin: 1rem 0.5rem
+    }
+
+    #diffMode div {
+        font-size: 1.1rem;
+        font-weight: bold;
+        letter-spacing: 1px;
+        width: 100%;
+    }
+
+    #start {
+        font-size: 1.2rem;
+        width: 80%;
+        padding: 0.5rem 0;
+        margin: 2rem 0;
+    }
+
+    .player-1,
+    .player-2 {
+        width: 80%;
+        height: 2.5rem;
+        margin: 0.5rem 0;
+    }
+
+    .player-1 span,
+    .player-2 span {
+        font-size: 1.0rem;
+        margin: 0 0.4rem;
+    }
+
+    .player-1 input,
+    .player-2 input {
+        height: 2rem;
+        width: 70%;
+        border-radius: 1rem;
+        padding-left: .5rem;
+        font-size: 1rem;
+    }
+
+    #play,
+    #skip {
+        width: 5rem;
+    }
+
+    .pTurn {
+        width: 90%;
+        font-size: 1.0rem;
+    }
+
+    .pActive {
+        box-shadow: 2px 2px 4px 2px var(--active-shadow);
+        background-color: rgb(110, 111, 182);
+    }
+
+    .pUnactive {
+        box-shadow: 2px 2px 4px 2px rgb(77, 77, 78);
+        background-color: rgb(109, 109, 109);
+    }
+
+    #player-1,
+    #player-2 {
+        margin: 0 0.4rem;
+        width: 50%;
+        height: 2.5rem;
+    }
+
+    .container {
+        margin: var(--my-1);
+        height: 12rem;
+        width: 12rem;
+    }
+
+    .container span {
+        height: 4rem;
+        width: 4rem;
+        font-size: 2rem;
+    }
+
+    .win-D {
+        width: 14rem;
+        height: .3rem;
+    }
+
+    #H-3 {
+        transform: translateY(0);
+    }
+
+    .win-H {
+        transform: translateY(-.15rem);
+        width: 10rem;
+        height: .3rem;
+    }
+
+    .win-C {
+        width: .3rem;
+        height: 10rem;
+    }
+
+    #C-3 {
+        transform: translateX(4rem);
+    }
+
+    #C-1 {
+        transform: translateX(-4.15rem);
+    }
+
+    .winner {
+        font-size: 1.5rem;
+        text-shadow: 2px 2px rgb(0, 100, 250);
+    }
+
+    .Won {
+        width: 12rem;
+        height: 12rem;
+    }
+
+    #restart,
+    #mainMenu {
+        width: 9rem;
+        height: 2.5rem;
+        font-size: 1.1rem;
+        margin: 0.5rem 0;
+        letter-spacing: 0.3px;
+    }
+}

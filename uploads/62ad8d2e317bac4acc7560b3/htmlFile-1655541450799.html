@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>word counter</title>
+<link rel="stylesheet" href="typing-test-master.css">
+</head>
+
+<body>
+    <div id="output">
+        <div id="result">RESULT</div>
+        <div class="resultBox center-y">
+            <div class="center-x"><span>WPM :</span><span id="wpm">0</span></div>
+            <div class="center-x"><span>ACCURACY :</span><span id="accuracy">0</span></div>
+        </div>
+    </div>
+    <div class="subject">
+        <h2>WELCOME TO TYPING MASTER</h2>
+    </div>
+    <div id="welcome" class="center-y">
+        <div id="start" onclick="countdown()">START</div>
+        <div id="countdown" class="circular center-y">
+            <div id="num" class="inner">3</div>
+            <div class="circle center-y">
+                <div class="bar left">
+                    <div class="progress"></div>
+                </div>
+                <div class="bar right">
+                    <div class="progress"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="container" class="center-y">
+        <div id="orgText" class="textBox">Love is an amazing feeling. An individual with a caring heart is consistently prepared to help other people with no desire. Love is the need of each person since the day of birth. Love associates the two souls everlastingly and makes the world a beautiful spot for them. Without a doubt, Love is divine.</div>
+        <div id="timer" class="center-x"><span id="min">1</span>:<span id="sec">30</span></div>
+        <div id="box" class="center-y">
+            TYPE HERE: <textarea id="typeText" name="Word Count" cols="10" rows="10"
+                onkeyup="typeMaster(event)" onpaste = "return false"></textarea>
+            <div>Charcater Count: <strong id="countC">0</strong></div>
+            <div>Word Count: <strong id="countW">0</strong></div>
+        </div>
+    </div>
+    <script src="typing-test-master.js"></script>
+</body>
+</html>
