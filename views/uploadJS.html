@@ -56,8 +56,7 @@
                 </ul>
             </div>
             <div class="navbar-brand" style="cursor: pointer;" onclick="openProfile()">
-                <img class="rounded-circle" src="../images/profile.png"
-                    alt="User Profile" width="30" height="30">
+                <img class="rounded-circle" src="../images/profile.png" alt="User Profile" width="30" height="30">
             </div>
             <div id="profileSupportedContent" class="container-fluid bg-dark">
                 <ul class="navbar-nav me-auto mb-2 mb-md-0 d-flex flex-column align-items-center">
@@ -81,12 +80,10 @@
             </div>
         </div>
     </nav>
-    <div class="alert alert-success" role="alert"
+    <div class="alert alert-danger" role="alert"
         style="position: fixed; top: 59px; z-index: 10; width: 100%; display: none;">
-        <Strong>Success!</Strong> Code Copied!
     </div>
-    <div onclick="backToTop()" id="backToTopBtn" class="center-x"><img
-            src="../images/backtotop.png" alt="totop"></div>
+    <div onclick="backToTop()" id="backToTopBtn" class="center-x"><img src="../images/backtotop.png" alt="totop"></div>
     <div class="container mt-3">
         <h3 class="text-center">Upload Your Project</h3>
         <div class="mb-3 mt-3">
@@ -94,11 +91,12 @@
                 <input name="projectTitle" id="projectTitle" type="text" class="form-control my-2" minlength="5"
                     placeholder="Project Title" required>
 
-                <input type="text" value="JavaScript" name="projectLanguages" id="projectLanguages" class="form-control my-2"
-                    placeholder="Languages used" readonly required>
+                <input type="text" value="JavaScript" name="projectLanguages" id="projectLanguages"
+                    class="form-control my-2" placeholder="Languages used" readonly required>
 
-                <textarea name="description" minlength="10" id="description" class="form-control my-2 row-10"
-                    aria-label="With textarea" placeholder="Project description and its features" required></textarea>
+                <textarea name="description" minlength="10" maxlength="200" id="description"
+                    class="form-control my-2 row-10" aria-label="With textarea"
+                    placeholder="Project description and its features" required></textarea>
 
                 <label for="imageFile" class="form-label my-2">Upload project cover:</label>
                 <input id="imageFile" name="imageFile" class="form-control form-control-sm" type="file"
@@ -141,44 +139,6 @@
     integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy"
     crossorigin="anonymous"></script>
 <script src="../js/navbarLog.js"></script>
-<script>
-
-    let myForm = document.getElementById(`form`);
-    myForm.onsubmit = async function (e) {
-        e.preventDefault();
-        let value;
-        let imageFile = document.getElementById(`imageFile`);
-        let videoFile = document.getElementById(`videoFile`);
-        let htmlFile = document.getElementById(`htmlFile`);
-        let cssFile = document.getElementById(`cssFile`);
-        let jsFile = document.getElementById(`jsFile`);
-        let formData = new FormData();
-        value = await fetch('/upload/uploadtext', {
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                projectTitle: document.getElementById('projectTitle').value,
-                projectLanguages: document.getElementById('projectLanguages').value,
-                description: document.getElementById('description').value
-            })
-        }).then(res => res.json()).then((json) => value = json);
-        console.log(value);
-        if (value.result) {
-            let nextValue;
-            formData.append('imageFile', imageFile.files[0], imageFile.files[0].name);
-            formData.append('videoFile', videoFile.files[0], videoFile.files[0].name);
-            formData.append('htmlFile', htmlFile.files[0], htmlFile.files[0].name);
-            formData.append('cssFile', cssFile.files[0], cssFile.files[0].name);
-            formData.append('jsFile', jsFile.files[0], jsFile.files[0].name);
-            nextValue = await fetch('/upload/uploadjs', {
-                method: "POST",
-                body: formData
-            }).then(res => res.json()).then((json) => nextValue = json);
-            window.location.href = nextValue.nextURL;
-        }
-    }
-</script>
+<script src="../js/uploadJS.js"></script>
 
 </html>

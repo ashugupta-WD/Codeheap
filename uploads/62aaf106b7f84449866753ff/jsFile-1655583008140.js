@@ -1,0 +1,1 @@
+console.log("NO JAVASCRIPT USED IN THIS PROJECT");

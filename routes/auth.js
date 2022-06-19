@@ -14,11 +14,6 @@ const fetchAuthUser = require('../middleware/fetchTokenData');
 const { readCodeFile } = require('../middleware/codeToText');
 
 
-function changePath(originalPath) {
-    originalPath = originalPath.replace('uploads', '');
-    return originalPath.replace(/\\/g, '/');
-}
-
 function getTimeDifference(date) {
     const projectDate = Date.parse(date);
     const todayDate = new Date().getTime();
@@ -235,7 +230,6 @@ router.get('/projects', fetchAuthUser, async (req, res) => {
                 let name = await User.find({ _id: projects[index].user }, { firstName: 1, lastName: 1, _id: 0 });
                 list.push(getProjectInfo(projects[index], (name[0].firstName + ' ' + name[0].lastName)));
             }
-            console.log(list);
             res.status(200).render('projectList', { list });
         }
         catch (error) {
