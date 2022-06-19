@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 async function main() {
-    // await mongoose.connect(process.env.mongoURI);
-    await mongoose.connect(process.env.cloudMongoURI);
+    await mongoose.connect(process.env.mongoURI);
+    // await mongoose.connect(process.env.cloudMongoURI);
 }
 
 const connectToMongo = () => {

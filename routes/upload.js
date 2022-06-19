@@ -32,17 +32,23 @@ const projectTemplate = {
     jsPath: ''
 }
 
+
+function changePath(originalPath) {
+    originalPath = originalPath.replace('uploads', '');
+    return originalPath.replace(/\\/g, '/');
+}
+
 // @route 2: STORE MEDIA FILES THAT ARE UPLOADED BY THE USER -> WE ARE USING SEPEARTE ROUTES TO STORE MEDIA FILES AND TEXT DATA BECAUSE MULTER WORKS ON ASYNCHRONOUS CONCEPT SUCH THAT IT STORES ALL MEDIA FILES AND FORGET ABOUT THE TEXT DATA AND RETURNS
 router.post('/uploadjs', fetchAuthUser, upload.fields([{ name: 'imageFile', maxCount: 1 }, { name: 'videoFile', maxCount: 1 }, { name: 'htmlFile', maxCount: 1 }, { name: 'cssFile', maxCount: 1 }, { name: 'jsFile', maxCount: 1 }]), async (req, res) => {
     if (req.userData.length === 0) {
         res.status(200).redirect('/home');
     } else {
         try {
-            projectTemplate.imagePath = req.files.imageFile[0].path;
-            projectTemplate.videoPath = req.files.videoFile[0].path;
-            projectTemplate.htmlPath = req.files.htmlFile[0].path;
-            projectTemplate.cssPath = req.files.cssFile[0].path;
-            projectTemplate.jsPath = req.files.jsFile[0].path;
+            projectTemplate.imagePath = changePath(req.files.imageFile[0].path);
+            projectTemplate.videoPath = changePath(req.files.videoFile[0].path);
+            projectTemplate.htmlPath = changePath(req.files.htmlFile[0].path);
+            projectTemplate.cssPath = changePath(req.files.cssFile[0].path);
+            projectTemplate.jsPath = changePath(req.files.jsFile[0].path);
             const newProject = new Project(projectTemplate);
             await newProject.save();
             res.send({ msg: "Files recieved!", nextURL: '/myprojects' });

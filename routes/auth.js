@@ -40,7 +40,7 @@ function getProjectInfo(obj, fullName) {
         projectId: obj._id,
         title: obj.title,
         language: obj.languages,
-        image: changePath(obj.imagePath),
+        image: obj.imagePath,
         time: getTimeDifference(obj.timeStamp)
     };
     return info;
@@ -235,6 +235,7 @@ router.get('/projects', fetchAuthUser, async (req, res) => {
                 let name = await User.find({ _id: projects[index].user }, { firstName: 1, lastName: 1, _id: 0 });
                 list.push(getProjectInfo(projects[index], (name[0].firstName + ' ' + name[0].lastName)));
             }
+            console.log(list);
             res.status(200).render('projectList', { list });
         }
         catch (error) {
@@ -275,10 +276,10 @@ router.get('/showproject', fetchAuthUser, async (req, res) => {
             if (JSON.stringify(projects[0].user) !== JSON.stringify(req.userData[0]._id)) {
                 await Project.updateOne({ _id: req.query.projectId }, { $inc: { views: 1 } });
             }
-            const htmlText = await readCodeFile(projects[0].htmlPath);
-            const cssText = await fs.promises.readFile(projects[0].cssPath, 'utf-8');
-            const jsText = await fs.promises.readFile(projects[0].jsPath, 'utf-8');
-            res.status(200).render('viewProject', { info: { video: changePath(projects[0].videoPath), title: projects[0].title, description: projects[0].description, html: htmlText, css: cssText, js: jsText, author: (req.userData[0].firstName + ' ' + req.userData[0].lastName), time: getTimeDifference(projects[0].timeStamp) } });
+            const htmlText = await readCodeFile('uploads'+projects[0].htmlPath);
+            const cssText = await fs.promises.readFile('uploads'+projects[0].cssPath, 'utf-8');
+            const jsText = await fs.promises.readFile('uploads'+projects[0].jsPath, 'utf-8');
+            res.status(200).render('viewProject', { info: { video: projects[0].videoPath, title: projects[0].title, description: projects[0].description, html: htmlText, css: cssText, js: jsText, author: (req.userData[0].firstName + ' ' + req.userData[0].lastName), time: getTimeDifference(projects[0].timeStamp) } });
         } catch (error) {
             console.log(error);
             res.status(401).send({ msg: 'Internal Server Error!' });
