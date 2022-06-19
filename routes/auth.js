@@ -172,12 +172,11 @@ router.post('/signup', async (req, res) => {
         res.cookie('AuthToken', authToken, { maxAge: expDate, path: '/', sameSite: 'lax' });
         res.set('Access-Control-Allow-Origin', req.headers.origin);
         res.set('Access-Control-Allow-Credentials', true);
-        // res.status(200).sendFile(path.join(__dirname, '..', 'index.html'));
-        res.status(200).redirect('/home');
+        res.status(200).send({result: true});
     }
     catch (err) {
         console.log(err);
-        res.status(401).send("Internal Server Error!");
+        res.status(401).send({msg:"Internal Server Error!"});
     }
 });
 
@@ -224,7 +223,6 @@ router.get('/projects', fetchAuthUser, async (req, res) => {
     else {
         try {
             const projects = await Project.find({}); // --> returns an array  //
-            const authorList = [];
             const list = [];
             for (let index = 0; index < projects.length; index++) {
                 let name = await User.find({ _id: projects[index].user }, { firstName: 1, lastName: 1, _id: 0 });

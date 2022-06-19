@@ -346,8 +346,8 @@ footer>p {
 @media only screen and (max-width: 478px) {
     .alert {
         top: 3rem;
-        height: 1.5rem;
-        font-size: 10px;
+        height: 3rem;
+        font-size: 14px;
         padding: 0 0.5rem;
     }
 

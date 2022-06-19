@@ -5,13 +5,6 @@ let unique = {
     passMatch: null
 }
 
-setInterval(() => {
-    if (unique.isUniqueMail && unique.passMatch) {
-        document.getElementById('signup').disabled = false;
-        return;
-    }
-}, 10);
-
 const codeSnippets = [
     { language: `C Programming`, statement: `#include <stdio.h>\nint main() {\n    printf("Hello World!");\n    return 0;\n}` },
     { language: `JavaScript`, statement: `console.log("Hello World!");` },
@@ -19,7 +12,6 @@ const codeSnippets = [
     { language: `Java`, statement: `public class Main {\n    public static void main(String[] args) {\n        System.out.println("Hello World!);\n    }\n}` },
     { language: `Python`, statement: `print("Hello World!")` }
 ];
-
 
 setTimeout(startPrinting, 1000);
 
@@ -126,4 +118,29 @@ async function emailValidation() {
     }
 }
 
+const myForm = document.getElementById('signupForm');
 
+myForm.onsubmit = async function (e) {
+    e.preventDefault();
+    let formData = new FormData(myForm);
+    const entries = formData.entries();
+    const data = Object.fromEntries(entries);
+    if (unique.isUniqueMail && unique.passMatch) {
+        value = await fetch('/signup', {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        }).then(res => res.json()).then((json) => value = json);
+        if(value.result){
+            window.location.href = '/home'
+        }
+    }
+    else {
+        document.getElementsByClassName(`alert`)[0].innerHTML = `Please Enter Correct Credentials`
+        document.getElementsByClassName(`alert`)[0].style.background = `var(--alertDanger)`;
+        document.getElementsByClassName(`alert`)[0].style.display = `flex`;
+        dismissAlert();
+    }
+}
