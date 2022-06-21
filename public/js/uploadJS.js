@@ -147,7 +147,7 @@ myForm.onsubmit = async function (e) {
         formData.append('htmlFile', htmlFile.files[0], htmlFile.files[0].name);
         formData.append('cssFile', cssFile.files[0], cssFile.files[0].name);
         formData.append('jsFile', jsFile.files[0], jsFile.files[0].name);
-        nextValue = await fetch('/upload/uploadjs', {
+        nextValue = await fetch('/upload/js', {
             method: "POST",
             body: formData
         }).then(res => res.json()).then((json) => nextValue = json);

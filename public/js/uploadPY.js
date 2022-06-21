@@ -85,7 +85,7 @@ myForm.onsubmit = async function (e) {
     }
 
     let formData = new FormData();
-    value = await fetch('/upload/uploadpytext', {
+    value = await fetch('/upload/uploadtext', {
         method: "POST",
         headers: {
             'Content-Type': 'application/json'
@@ -102,7 +102,7 @@ myForm.onsubmit = async function (e) {
         formData.append('imageFile', imageFile.files[0], imageFile.files[0].name);
         formData.append('videoFile', videoFile.files[0], videoFile.files[0].name);
         formData.append('pythonFile', pythonFile.files[0], pythonFile.files[0].name);
-        nextValue = await fetch('/upload/uploadpy', {
+        nextValue = await fetch('/upload/python', {
             method: "POST",
             body: formData
         }).then(res => res.json()).then((json) => nextValue = json);
