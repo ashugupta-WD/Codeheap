@@ -7,6 +7,7 @@ const fs = require('fs');
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 const Project = require('../models/Project');
+const Python = require('../models/ProjectPy');
 const Visitor = require('../models/Visitors');
 const Query = require('../models/Contact');
 const { isEmailExists } = require('../middleware/validations');
@@ -18,14 +19,14 @@ function getTimeDifference(date) {
     const projectDate = Date.parse(date);
     const todayDate = new Date().getTime();
     let diff = Math.floor((todayDate - projectDate) / 1000);
-    if (diff > 0 && diff < 60) {
+    if (diff >= 0 && diff < 60) {
         return (diff + ' secs ago');
     } else if (diff < (60 * 60)) {
-        return (Math.floor(diff / 60) + ' min ago');
+        return (Math.floor(diff / 60) + ' mins ago');
     } else if (diff < (60 * 60 * 24)) {
-        return (Math.floor(diff / (60 * 60)) + ' hr ago');
+        return (Math.floor(diff / (60 * 60)) + ' hrs ago');
     } else {
-        return (Math.floor(diff / (60 * 60 * 24)) + ' day ago');
+        return (Math.floor(diff / (60 * 60 * 24)) + ' days ago');
     }
 };
 
@@ -223,10 +224,15 @@ router.get('/projects', fetchAuthUser, async (req, res) => {
     else {
         try {
             const projects = await Project.find({}); // --> returns an array  //
+            const pythonProjects = await Python.find({}); // --> returns an array  //
             const list = [];
             for (let index = 0; index < projects.length; index++) {
                 let name = await User.find({ _id: projects[index].user }, { firstName: 1, lastName: 1, _id: 0 });
                 list.push(getProjectInfo(projects[index], (name[0].firstName + ' ' + name[0].lastName)));
+            }
+            for (let index = 0; index < pythonProjects.length; index++) {
+                let name = await User.find({ _id: pythonProjects[index].user }, { firstName: 1, lastName: 1, _id: 0 });
+                list.push(getProjectInfo(pythonProjects[index], (name[0].firstName + ' ' + name[0].lastName)));
             }
             res.status(200).render('projectList', { list });
         }
@@ -246,7 +252,11 @@ router.get('/myprojects', fetchAuthUser, async (req, res) => {
         try {
             const list = [];
             const projects = await Project.find({ user: req.userData[0]._id }); // --> returns an array  //
-            await projects.forEach((element, index, array) => {
+            const pythonProjects = await Python.find({ user: req.userData[0]._id }); // --> returns an array  //
+            await projects.forEach((element) => {
+                list.push(getProjectInfo(element, req.userData[0].firstName));
+            });
+            await pythonProjects.forEach((element) => {
                 list.push(getProjectInfo(element, req.userData[0].firstName));
             });
             res.status(200).render('userProjects', { list });
@@ -265,13 +275,25 @@ router.get('/showproject', fetchAuthUser, async (req, res) => {
     else {
         try {
             const projects = await Project.find({ _id: req.query.projectId });
-            if (JSON.stringify(projects[0].user) !== JSON.stringify(req.userData[0]._id)) {
-                await Project.updateOne({ _id: req.query.projectId }, { $inc: { views: 1 } });
+            const pythonProjects = await Python.find({ _id: req.query.projectId });
+            if(projects.length !== 0){
+                if (JSON.stringify(projects[0].user) !== JSON.stringify(req.userData[0]._id)) {
+                    await Project.updateOne({ _id: req.query.projectId }, { $inc: { views: 1 } });
+                }
+                const htmlText = await readCodeFile('uploads'+projects[0].htmlPath);
+                const cssText = await fs.promises.readFile('uploads'+projects[0].cssPath, 'utf-8');
+                const jsText = await fs.promises.readFile('uploads'+projects[0].jsPath, 'utf-8');
+                let name = await User.find({ _id: projects[0].user }, { firstName: 1, lastName: 1, _id: 0 });
+                res.status(200).render('viewProject', { info: { video: projects[0].videoPath, title: projects[0].title, description: projects[0].description, html: htmlText, css: cssText, js: jsText, author: name[0].firstName + ' ' + name[0].lastName, time: getTimeDifference(projects[0].timeStamp) } });
             }
-            const htmlText = await readCodeFile('uploads'+projects[0].htmlPath);
-            const cssText = await fs.promises.readFile('uploads'+projects[0].cssPath, 'utf-8');
-            const jsText = await fs.promises.readFile('uploads'+projects[0].jsPath, 'utf-8');
-            res.status(200).render('viewProject', { info: { video: projects[0].videoPath, title: projects[0].title, description: projects[0].description, html: htmlText, css: cssText, js: jsText, author: (req.userData[0].firstName + ' ' + req.userData[0].lastName), time: getTimeDifference(projects[0].timeStamp) } });
+            if(pythonProjects.length !== 0){
+                if (JSON.stringify(pythonProjects[0].user) !== JSON.stringify(req.userData[0]._id)) {
+                    await Python.updateOne({ _id: req.query.projectId }, { $inc: { views: 1 } });
+                }
+                const pythonText = await fs.promises.readFile('uploads' + pythonProjects[0].pythonPath, 'utf-8');
+                let name = await User.find({ _id: pythonProjects[0].user }, { firstName: 1, lastName: 1, _id: 0 });
+                res.status(200).render('python', { info: { video: pythonProjects[0].videoPath, title: pythonProjects[0].title, description: pythonProjects[0].description, pycode: pythonText, author: name[0].firstName + ' ' + name[0].lastName, time: getTimeDifference(pythonProjects[0].timeStamp) } });
+            }
         } catch (error) {
             console.log(error);
             res.status(401).send({ msg: 'Internal Server Error!' });

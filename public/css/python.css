@@ -1,0 +1,17 @@
+@media only screen and (min-width: 992px) {
+    #projectVideo {
+        width: 720px;
+    }
+}
+
+.snippet {
+    background: linear-gradient(to bottom left, #4301FF, #7e00f5) !important;
+}
+
+.codeContainer {
+    height: 1050px;
+}
+
+pre {
+    height: 100%;
+}
