@@ -38,6 +38,9 @@ nav.navbar.navbar-expand-md.navbar-dark.bg-dark.fixed-top
         li.nav-item
           a.nav-link(href='/contact') Contact Us
           .link-active
+        li.nav-item.chat
+          a.nav-link(href='/chatroom' target='_blank') Chat
+          .link-active
     .navbar-brand(style='cursor: pointer;' onclick='openProfile()')
       img.rounded-circle(src='images/profile.png' alt='User Profile' width='30' height='30')
     #profileSupportedContent.container-fluid.bg-dark
@@ -61,9 +64,9 @@ nav.navbar.navbar-expand-md.navbar-dark.bg-dark.fixed-top
     h1.text-center PROJECTS LIST
     p.center-text
       | We provide you with source code of simplest of projects like an calculator to start
-      | your prograaming joutney adorned with bugs to the source
+      | your programming journey adorned with bugs to the source
       | codes of full fledged deployment level websites that are in high in demand at industrial level,
-      | appliaction
+      | application
       | and software programs in all possible prograaming languages. So what are you waiting for, Let&apos;s CODE!
 .row.row-cols-1.row-cols-sm-2.row-cols-md-3.row-cols-xxl-3.g-3(style='max-width: 100%; margin: auto;')
   each project in list

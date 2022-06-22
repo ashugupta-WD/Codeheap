@@ -98,6 +98,23 @@ router.get('/contact', fetchAuthUser, async (req, res) => {
     }
 });
 
+router.get('/chatroom', fetchAuthUser, (req, res) => {
+    if (req.userData.length === 0) {
+        res.status(200).redirect('/home');
+    }
+    else {
+        res.status(200).sendFile(path.join(__dirname, '../views/chatApp.html'));
+    }
+});
+
+router.get('/getchatname', fetchAuthUser, (req, res) => {
+    if (req.userData.length === 0) {
+        res.status(401).send({msg: 'Unauthorized Access!'});
+    }
+    else {
+        res.status(200).send({name: req.userData[0].firstName + ' ' + req.userData[0].lastName});
+    }
+});
 
 // @route 1. For collecting user queries and storing them on cloud database
 router.post('/contact', async (req, res) => {
