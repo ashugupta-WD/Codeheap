@@ -1,8 +1,9 @@
-const socket = io();
-
+let socket = io();
+const tune = new Audio('pikachu-msg.mp3');
 const messageContainer = document.getElementsByClassName('messageContainer')[0];
 const alertBox = document.getElementsByClassName('alert')[0];
-alertBox.innerHTML = '<strong>Warning! Refreshing the page will delete all you messages.</strong>';
+alertBox.innerHTML = '<strong>Warning! Refreshing the page will delete all your messages.</strong>';
+
 setTimeout(() => {
     alertBox.style.display = 'none';
 }, 5000);
@@ -38,6 +39,7 @@ function appendRecieverMessage(msg, name, time) {
     element.classList.add('chat-message-left');
     element.classList.add('pb4');
     messageContainer.append(element);
+    tune.play();
 }
 
 
@@ -49,12 +51,22 @@ function timeStamp() {
     if(hrs>=12){mdn = "PM";}
     if(hrs === 24){hrs = 12}
     if(hrs > 12){hrs = hrs%12}
+    if(hrs < 10) {
+        hrs = `0${hrs}`
+    }
+    if(mts < 10) {
+        hrs = `0${mts}`
+    }
     return (`${hrs}:`+`${mts} `+ mdn);
 }
 
 async function getName() {
-    const name = await fetch('/getchatname').then(res=>res.json()).then(json=> data = json.name); 
-    socket.emit('new-user-joined', name);
+    let data;
+    await fetch('/getchatname').then(res=>res.json()).then(json=> data = json); 
+    console.log(sessionStorage.getItem('active'));
+    data = {...data, active: sessionStorage.getItem('active')};
+    socket.emit('new-user-joined', data);
+    sessionStorage.setItem('active', true)
     return;
 }
 

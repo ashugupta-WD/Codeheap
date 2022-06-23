@@ -49,6 +49,7 @@
     max-width: 100%;
     height: 17rem;
     padding: 0 !important;
+    overflow: hidden;
 }
 
 .noteCard>div>.card-body>img {
@@ -57,6 +58,11 @@
     height: 100%;
     max-height: 100%;
     padding: 0 !important;
+    transition: all 0.5s ease-in-out;
+}
+
+.noteCard>div>.card-body>img:hover {
+    transform: scale(1.05);
 }
 
 @media only screen and (max-width:768px) {

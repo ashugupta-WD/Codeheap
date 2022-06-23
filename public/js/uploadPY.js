@@ -17,11 +17,28 @@ function checkVideoExtension(name) {
     return true;
 }
 
-function checkPythonExtension(name) {
+function checkCodeExtension(name) {
     let arr = name.split('.');
     let ext = arr[arr.length - 1];
-    if (ext !== 'py') {
-        return false;
+    if(document.getElementById('projectLanguages').value === 'Python'){
+        if (ext !== 'py') {
+            return false;
+        }
+    }
+    if(document.getElementById('projectLanguages').value === 'Java'){
+        if (ext !== 'java') {
+            return false;
+        }
+    }
+    if(document.getElementById('projectLanguages').value === 'C++'){
+        if (ext !== 'cpp') {
+            return false;
+        }
+    }
+    if(document.getElementById('projectLanguages').value === 'C'){
+        if (ext !== 'c') {
+            return false;
+        }
     }
     return true;
 }
@@ -32,7 +49,7 @@ myForm.onsubmit = async function (e) {
     let value;
     let imageFile = document.getElementById(`imageFile`);
     let videoFile = document.getElementById(`videoFile`);
-    let pythonFile = document.getElementById(`pythonFile`);
+    let codeFile = document.getElementById(`codeFile`);
 
     if (imageFile.files[0].size > (1024 * 1024)) {
         document.getElementsByClassName('alert')[0].innerHTML = "<Strong>Danger! </Strong>Image File Size Greater Than 1 MB";
@@ -74,7 +91,7 @@ myForm.onsubmit = async function (e) {
         return;
     }
 
-    if (!checkPythonExtension(pythonFile.files[0].name)) {
+    if (!checkCodeExtension(codeFile.files[0].name)) {
         document.getElementsByClassName('alert')[0].innerHTML = "<Strong>Danger! </Strong>Not an PYTHON File.";
         document.getElementsByClassName('alert')[0].style.display = "block";
         setTimeout(() => {
@@ -101,8 +118,8 @@ myForm.onsubmit = async function (e) {
         let nextValue;
         formData.append('imageFile', imageFile.files[0], imageFile.files[0].name);
         formData.append('videoFile', videoFile.files[0], videoFile.files[0].name);
-        formData.append('pythonFile', pythonFile.files[0], pythonFile.files[0].name);
-        nextValue = await fetch('/upload/python', {
+        formData.append('codeFile', codeFile.files[0], codeFile.files[0].name);
+        nextValue = await fetch('/upload/codefile', {
             method: "POST",
             body: formData
         }).then(res => res.json()).then((json) => nextValue = json);

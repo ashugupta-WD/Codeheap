@@ -43,7 +43,7 @@
     overflow: hidden;
 }
 
-.noteCard>div>.card-body>img {
+.noteCard>div>.card-body img {
     width: 100%;
     max-width: 100%;
     height: 100%;
@@ -52,7 +52,7 @@
     transition: all 0.5s ease-in-out;
 }
 
-.noteCard>div>.card-body>img:hover {
+.noteCard>div>.card-body img:hover {
     transform: scale(1.05);
 }
 

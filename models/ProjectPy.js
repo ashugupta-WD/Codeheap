@@ -25,7 +25,7 @@ const pythonSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    pythonPath: {
+    codePath: {
         type: String,
         required: true
     },

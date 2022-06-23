@@ -66,7 +66,7 @@ body {
     background-color: rgb(75, 75, 75);
 }
 
-.noteCard>div>.card-body>img {
+.noteCard>div>.card-body img {
     width: 100%;
     max-width: 100%;
     height: 100%;
@@ -76,7 +76,7 @@ body {
     border-radius: 4px;
 }
 
-.noteCard>div>.card-body>img:hover {
+.noteCard>div>.card-body img:hover {
     transform: scale(1.05);
 }
 

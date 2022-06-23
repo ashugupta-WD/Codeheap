@@ -7,6 +7,7 @@ connectToMongo();
 const app = express();
 app.use(cookieParser());
 const port = process.env.PORT;
+const Chat = require('./models/Chatroom');
 app.set('views', './views')
 app.set('view engine', 'pug');
 app.use(express.static(__dirname + '/public'));
@@ -34,17 +35,29 @@ const io = new Server(httpServer, { /* options */ });
 const users = {};
 
 io.on('connection', socket => {
-    socket.on('new-user-joined', name => {
-        users[socket.id] = name
-        socket.broadcast.emit('user-joined', name);
+    socket.on('new-user-joined', data => {
+        users[socket.id] = {name: data.name, userID: data.user, active: data.active};
+        if(!(users[socket.id].active)){
+            socket.broadcast.emit('user-joined', (data.name));
+        }
     });
 
     socket.on('send', message => {
-        socket.broadcast.emit('recieve', { message: message.msg, name: users[socket.id], time: message.time });
+        socket.broadcast.emit('recieve', { message: message.msg, name: (users[socket.id].name), time: message.time });
     });
 
-    socket.on('disconnect', message => {
-        socket.broadcast.emit('left', users[socket.id]);
-        delete users[socket.id];
+    socket.on('disconnect', async (message) => {
+        try {
+            const userId = users[socket.id].userID;
+            await Chat.deleteOne({user: userId});
+            setTimeout(async () => {
+                if((await Chat.find({user: userId})).length === 0){
+                    socket.broadcast.emit('left', (users[socket.id].name));
+                    delete users[socket.id];
+                }
+            }, 10000);
+        } catch (error) {
+            return;
+        }
     });
 });

@@ -97,7 +97,7 @@ body {
     top: 59px;
     bottom: 0;
     width: 0;
-    height: 15rem;
+    height: 22rem;
     transition: width 500ms ease-in-out;
     border-bottom-left-radius: 1rem;
     overflow-x: hidden;

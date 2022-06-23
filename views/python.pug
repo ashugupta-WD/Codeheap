@@ -54,6 +54,12 @@ nav.navbar.navbar-expand-md.navbar-dark.bg-dark.fixed-top
               a.dropdown-item(href='/upload/js') Javascript
             li
               a.dropdown-item(href='/upload/python') Python
+            li
+              a.dropdown-item(href='/upload/java') Java
+            li
+              a.dropdown-item(href='/upload/cpp') C++
+            li
+              a.dropdown-item(href='/upload/c') C  
         li.nav-item.mt-auto
           a.nav-link(href='/logout') Sign Out
 .alert.alert-success(role='alert' style='position: fixed; top: 59px; z-index: 10; width: 100%; display: none;')
@@ -77,7 +83,7 @@ hr
   dl.row
     dt.col-sm-3 Languages used
     dd.col-sm-9
-      p Python
+      p #{info.languages}
     dt.col-sm-3 Description
     dd.col-sm-9 #{info.description}
     dt.col-sm-3 Author&apos;s Name
@@ -88,12 +94,12 @@ hr
     .card-header
       ul.nav.nav-tabs.card-header-tabs
         li.nav-item
-          a.nav-link.text-white.snippet(role='button') Python
+          a.nav-link.text-white.snippet(role='button') #{info.languages}
         li.nav-item(style='margin-left: auto;')
           a.nav-link.text-white.snippet(role='button' onclick='copySnippet()') Copy
     .codeContainer
       pre
-        != '<code class = "language-python">'
+        != '<code class = language-' + info.prism + '>'
         | !{info.pycode}
         != '</code>'
 

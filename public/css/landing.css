@@ -149,7 +149,7 @@ body, html {
   border-radius: 1rem;
 }
 
-.template>span {
+.template>a {
   max-width: 100%;
   border: 1px solid black;
   max-height: 300px;
@@ -157,20 +157,20 @@ body, html {
   border-radius: 1rem;
 }
 
-.template>span>img {
+.template>a img {
   width: 100%;
   height: 300px;
   transform: scale(1);
   transition: all .2s ease-in;
 }
 
-.template>span>img:hover {
+.template>a img:hover {
   transform: scale(1.1);
 }
 
 .template>h2 {
   font-weight: bold;
-  font-family: cursive;
+  font-family: monospace;
   text-align: center;
   font-size: 1.75rem;
   margin-top: 4px;
@@ -349,11 +349,11 @@ body, html {
     margin: 1rem;
   }
 
-  .template>span {
+  .template>a {
     max-height: 300px;
   }
 
-  .template>span>img {
+  .template>a img {
     height: 300px;
   }
 
@@ -449,11 +449,11 @@ body, html {
     margin: 1rem;
   }
 
-  .template>span {
+  .template>a {
     max-height: 300px;
   }
 
-  .template>span>img {
+  .template>a img {
     height: 300px;
   }
 
@@ -527,11 +527,11 @@ body, html {
     margin: .75rem 0.25rem;
   }
 
-  .template>span {
+  .template>a {
     max-height: 300px;
   }
 
-  .template>span>img {
+  .template>a img {
     height: 250px;
     border-radius: 1rem;
   }

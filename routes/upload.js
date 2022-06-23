@@ -9,7 +9,7 @@ const Visitor = require('../models/Visitors');
 const fetchAuthUser = require('../middleware/fetchTokenData');
 app.use(express.json());
 
-// @route 1: FETCH ALL PROJECTS OF A USER. --> ( LOGIN REQUIRED )
+// @route 1: RENDER JAVASCRIPT PROJECT UPLOAD PAGE. --> ( LOGIN REQUIRED )
 router.get('/js', fetchAuthUser, async (req, res) => {
     await Visitor.updateOne({}, { $inc: { upload: 1 } });
     if (req.userData.length === 0) {
@@ -19,6 +19,7 @@ router.get('/js', fetchAuthUser, async (req, res) => {
     }
 });
 
+// @route 2: RENDER PYTHON PROJECT UPLOAD PAGE. --> ( LOGIN REQUIRED )
 router.get('/python', fetchAuthUser, async (req, res) => {
     await Visitor.updateOne({}, { $inc: { upload: 1 } });
     if (req.userData.length === 0) {
@@ -28,8 +29,38 @@ router.get('/python', fetchAuthUser, async (req, res) => {
     }
 });
 
+// @route 3: RENDER JAVA PROJECT UPLOAD PAGE. --> ( LOGIN REQUIRED )
+router.get('/java', fetchAuthUser, async (req, res) => {
+    await Visitor.updateOne({}, { $inc: { upload: 1 } });
+    if (req.userData.length === 0) {
+        res.status(200).redirect('/home');
+    } else {
+        res.status(200).sendFile(path.join(__dirname, '../views/uploadJava.html'));
+    }
+});
 
-//  JAVSCRIPT PROJECT OBJECT TEMPLATE TO STORE INCOMING REQUEST DATA AND THEN STORE IN DATABASE
+// @route 4: RENDER C++ PROJECT UPLOAD PAGE. --> ( LOGIN REQUIRED )
+router.get('/cpp', fetchAuthUser, async (req, res) => {
+    await Visitor.updateOne({}, { $inc: { upload: 1 } });
+    if (req.userData.length === 0) {
+        res.status(200).redirect('/home');
+    } else {
+        res.status(200).sendFile(path.join(__dirname, '../views/uploadCPP.html'));
+    }
+});
+
+// @route 5: RENDER C PROJECT UPLOAD PAGE. --> ( LOGIN REQUIRED )
+router.get('/c', fetchAuthUser, async (req, res) => {
+    await Visitor.updateOne({}, { $inc: { upload: 1 } });
+    if (req.userData.length === 0) {
+        res.status(200).redirect('/home');
+    } else {
+        res.status(200).sendFile(path.join(__dirname, '../views/uploadC.html'));
+    }
+});
+
+
+//  JAVSCRIPT PROJECT OBJECT TEMPLATE TO STORE INCOMING REQUEST DATA ( MEDIA FILES ) AND THEN STORE IT IN DATABASE
 const jsTemplate = {
     videoPath: '',
     imagePath: '',
@@ -38,6 +69,7 @@ const jsTemplate = {
     jsPath: ''
 }
 
+//  PROJECT TEXT DATA OBJECT TEMPLATE TO STORE INCOMING REQUEST DATA ( TEXT DATA ) AND THEN STORE IT IN DATABASE
 const textTemplate = {
     user: null,
     title: '',
@@ -45,19 +77,20 @@ const textTemplate = {
     languages: ''
 }
 
-const pythonTemplate = {
+//  PROJECT FILE DATA OBJECT TEMPLATE TO STORE INCOMING REQUEST DATA ( MEDIA DATA ) AND THEN STORE IT IN DATABASE
+const projectTemplate = {
     videoPath: '',
     imagePath: '',
-    pythonPath: ''
+    codePath: ''
 }
 
-
+// FUNCTION TO COORECT THE PATH OF MEDIA FILES THAT WAS ASSIGNED BY MULTER BY DEFAULT SO THAT RENDERING OF MEDIA FILES COULD BE DONE PROPERLY
 function changePath(originalPath) {
     originalPath = originalPath.replace('uploads', '');
     return originalPath.replace(/\\/g, '/');
 }
 
-// @route 2: STORE MEDIA FILES THAT ARE UPLOADED BY THE USER -> WE ARE USING SEPEARTE ROUTES TO STORE MEDIA FILES AND TEXT DATA BECAUSE MULTER WORKS ON ASYNCHRONOUS CONCEPT SUCH THAT IT STORES ALL MEDIA FILES AND FORGET ABOUT THE TEXT DATA AND RETURNS
+// @route 6: STORE MEDIA FILES OF JAVASCRIPT PROJECT THAT ARE UPLOADED BY THE USER -> WE ARE USING SEPEARTE ROUTES TO STORE MEDIA FILES AND TEXT DATA BECAUSE MULTER WORKS ON ASYNCHRONOUS CONCEPT SUCH THAT IT STORES ALL MEDIA FILES AND FORGET ABOUT THE TEXT DATA AND RETURNS
 router.post('/js', fetchAuthUser, upload.fields([{ name: 'imageFile', maxCount: 1 }, { name: 'videoFile', maxCount: 1 }, { name: 'htmlFile', maxCount: 1 }, { name: 'cssFile', maxCount: 1 }, { name: 'jsFile', maxCount: 1 }]), async (req, res) => {
     if (req.userData.length === 0) {
         res.status(200).redirect('/home');
@@ -79,7 +112,7 @@ router.post('/js', fetchAuthUser, upload.fields([{ name: 'imageFile', maxCount: 
     }
 });
 
-// @route 3: STORE TEXT DATA OF SENT BY THE USER ALONG WITH MEDIA FILES
+// @route 7: STORE TEXT DATA OF SENT BY THE USER ALONG WITH MEDIA FILES
 router.post('/uploadtext', fetchAuthUser, async (req, res) => {
     if (req.userData.length === 0) {
         res.status(200).redirect('/home');
@@ -98,16 +131,16 @@ router.post('/uploadtext', fetchAuthUser, async (req, res) => {
     }
 });
 
-
-router.post('/python', fetchAuthUser, upload.fields([{ name: 'imageFile', maxCount: 1 }, { name: 'videoFile', maxCount: 1 }, { name: 'pythonFile', maxCount: 1 }]), async (req, res) => {
+// @route 8: STORE MEDIA FILES OF PROJECT THAT ARE UPLOADED BY THE USER -> WE ARE USING SEPEARTE ROUTES TO STORE MEDIA FILES AND TEXT DATA BECAUSE MULTER WORKS ON ASYNCHRONOUS CONCEPT SUCH THAT IT STORES ALL MEDIA FILES AND FORGET ABOUT THE TEXT DATA AND RETURNS
+router.post('/codefile', fetchAuthUser, upload.fields([{ name: 'imageFile', maxCount: 1 }, { name: 'videoFile', maxCount: 1 }, { name: 'codeFile', maxCount: 1 }]), async (req, res) => {
     if (req.userData.length === 0) {
         res.status(200).redirect('/home');
     } else {
         try {
-            pythonTemplate.imagePath = changePath(req.files.imageFile[0].path);
-            pythonTemplate.videoPath = changePath(req.files.videoFile[0].path);
-            pythonTemplate.pythonPath = changePath(req.files.pythonFile[0].path);
-            const fullTemplate = {...textTemplate, ...pythonTemplate};
+            projectTemplate.imagePath = changePath(req.files.imageFile[0].path);
+            projectTemplate.videoPath = changePath(req.files.videoFile[0].path);
+            projectTemplate.codePath = changePath(req.files.codeFile[0].path);
+            const fullTemplate = {...textTemplate, ...projectTemplate};
             const newProject = new Python(fullTemplate);
             await newProject.save();
             res.send({ msg: "Files recieved!", nextURL: '/myprojects' });
